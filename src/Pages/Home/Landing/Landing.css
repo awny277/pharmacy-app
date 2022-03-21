@@ -1,0 +1,138 @@
+/* start HomeLanding */
+.HomeLanding {
+  background: #f9f9f9 url(../../../images/search-bg.png) no-repeat bottom center;
+  max-height: 70vh;
+  min-height: 60vh;
+  position: relative;
+  background-size: 100% auto;
+  background-blend-mode: Darken;
+}
+/* start LandingBooking */
+.HomeLanding {
+  /* padding: 60px 0; */
+  min-height: 60vh;
+  max-height: fit-content ;
+  background-color: var(--bs-gray-100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.HomeLandingcont {
+  width: 100%;
+}
+.LandingBooking {
+  color: var(--main-Parg);
+  text-align: right;
+  padding: 10px 30px;
+  text-align: center;
+}
+.LandingBooking h1 {
+  font-size: 54px;
+  margin-bottom: 30px;
+}
+.LandingCall h2 {
+  font-size: 39px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.LandingCall a {
+  color: var(--bs-white);
+  background-color: var(--bs-labany2);
+  font-weight: bold;
+  margin-right: 15px;
+}
+.LandingCall a:hover {
+  background-color: var(--bs-labany);
+  color: var(--bs-white);
+}
+.LandingBooking p {
+  font-size: 30px;
+}
+
+@media (max-width: 768px) { 
+  .LandingBooking h1 {
+    font-size: 36px;
+  }
+  .LandingCall h2 {
+    font-size: 33px;
+  }
+}
+@media (max-width: 575.98px) { 
+  .LandingCall h2 {
+    font-size: 20px;
+  }
+  .LandingBooking p {
+    display: none;
+  }
+}
+/* start SearchCont */
+.SearchCont {
+  color: var(--main-Parg);
+}
+.SearchCont h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+.SearchCont p {
+  font-size: 25px;
+  width: 80%;
+  margin: 10px auto;
+}
+.SearchContInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.SearchInput {
+  width: 50%;
+  border: 1px solid var(--bs-gray-500);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: var(--bs-gray-100);
+}
+.SearchInput i {
+  color: var(--bs-gray-500);
+}
+.SearchInput input {
+  width: 90%;
+  margin-right: 10px;
+  border: none;
+  background-color: transparent;
+  padding: 5px;
+}
+.SearchInput input:focus {
+  outline: none;
+}
+.SearchButton {
+  color: var(--bs-white) !important;
+  background-color: var(--bs-labany2) !important ;
+  margin: 10px;
+}
+.SearchButton i {
+  margin: 7px;
+}
+.SearchButton:hover {
+  background-color: var(--bs-labany) !important;
+}
+@media (max-width: 575.98px) { 
+  .SearchCont p {
+    display: none;
+  }
+}
+@media (max-width: 768px) { 
+  .SearchCont h2 {
+    font-size: 34px;
+  }
+  
+  .SearchInput {
+    flex-basis: 75%;
+  }
+}

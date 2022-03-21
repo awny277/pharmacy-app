@@ -1,0 +1,119 @@
+.Touch{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.Touch h1 {
+  padding: 10px 0;
+}
+
+.Touch-contant {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.touch-left {
+  padding: 30px 10px;
+  border: 1px solid #6a6a6a24;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  width: 450px;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+.touch-left:hover {
+  border-color: transparent;
+  box-shadow: 0 0 30px rgb(0 0 0 / 10%);
+}
+.touch-icon {
+  color: #0791F6;
+  font-size: 20px;
+  margin:0 15px;
+  border: 1px solid #6a6a6a24;
+  padding: 7px 13px;
+}
+.touch-info h3 {
+  font-weight: 400;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+.touch-info span {
+  color: #838383;
+}
+.touch-form {
+  display: flex;
+  flex-direction: column;
+  padding: 30px ;
+  border: 1px solid #6a6a6a24;
+  margin-bottom: 10px;
+  flex-basis: 55%;
+  transition: all 0.s;
+  -webkit-transition: all 0.s;
+  -moz-transition: all 0.s;
+  -ms-transition: all 0.s;
+  -o-transition: all 0.s;
+  margin-right: 30px;
+}
+.touch-form:hover {
+  border-color: transparent;
+  box-shadow: 0 0 30px rgb(0 0 0 / 10%);
+}
+.touch-form input , .touch-form textarea  {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #6a6a6a24;
+  font-size: 17px;
+}
+.touch-form a
+{
+  width: 146px;
+  text-decoration: none;
+  /* padding: 20px 25px; */
+  padding: 10px 15px;
+  color:#092A49 ;
+  font-weight: bold;
+  border: 2px solid #092A49;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+.touch-form a:hover
+{
+  color: #0791F6;
+  background-color: #092A49;
+}
+@media (max-width:768px) {
+  .Touch .Team-Header {
+      margin-bottom: 15px;
+      margin-left: 35px;
+  }
+  .Touch-contant {
+      justify-content: center;
+  }
+  .touch-left ,.touch-form{
+      width: 300px;
+      margin-right: 0;
+  }
+  .touch-form a {
+      padding: 10px;
+      width: 126px;
+  }
+
+}
+@media (min-width:769px) and (max-width:1200px) {
+  .touch-form {
+      flex-basis: 47%;
+  }
+  .Touch .Team-Header {
+      margin-left: 50px;
+  }
+  .Touch .Touch-contant {
+      padding: 0 30px
+  }
+}
