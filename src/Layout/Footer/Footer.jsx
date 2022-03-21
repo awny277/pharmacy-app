@@ -18,7 +18,7 @@ const Footer = () => {
           <FaLinkedinIn />
         </div>
         <p class="copyright">
-          &copy; 2021 <span>kasper</span> all right reserved
+          &copy; 2021 <span>Pharmacy</span> all right reserved
         </p>
       </div>
     </div>

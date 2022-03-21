@@ -24,7 +24,7 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav nav-order3">
           <Nav className="me-auto">
             <NavLink to={"/admin"} className="nav-link">
-              Admin
+              DashBoard
             </NavLink>
           </Nav>
         </Navbar.Collapse>
