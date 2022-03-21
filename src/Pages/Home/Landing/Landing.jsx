@@ -15,9 +15,10 @@ const Landing = () => {
           <Row>
             <Col md={6}>
               <div className="SearchCont">
-                <h2>ابحث عن طبيب ، حدد موعد</h2>
+                <h2>looking for a cure ?</h2>
                 <p>
-                  اكتشف أفضل الأطباء والعيادة والمستشفى في المدينة الأقرب إليك
+                  Discover the best affordable price compared to the most famous
+                  pharmacies in the city
                 </p>
                 <div className=" SearchContInput">
                   <div className="SearchInput">
@@ -26,7 +27,7 @@ const Landing = () => {
                       type="search"
                       name=""
                       id=""
-                      placeholder="Search For a Doctor"
+                      placeholder="Search For a cure"
                     />
                   </div>
                   <NavLink to="/" className="btn SearchButton">
@@ -38,14 +39,21 @@ const Landing = () => {
             </Col>
             <Col md={6}>
               <div className="LandingBooking">
-                <h1>محتاج دكتور شاطر؟</h1>
+                <h1>Need the best treatment?</h1>
                 <div className="LandingCall">
-                  <NavLink to="/" className="btn">
-                    <i className="fas fa-phone"></i> اتصل بينا{" "}
+                  <h2 style={{ margin: "0 10px" }}>
+                    Pay at the clinic with no extra
+                  </h2>
+                  <NavLink
+                    to="/"
+                    className="btn"
+                    style={{ marginBottom: "10px" }}
+                  >
+                    <i className="fas fa-phone" style={{ margin: "0 " }}></i>{" "}
+                    Call us{" "}
                   </NavLink>
-                  <h2>احجز أونلاين أو احنا نحجزلك</h2>
                 </div>
-                <p>ادفع فى العيادة من غير زيادة</p>
+                {/* <p>ادفع فى العيادة من غير زيادة</p> */}
               </div>
             </Col>
           </Row>

@@ -17,33 +17,33 @@ const Feature = () => {
             <Col sm={5} md={4}>
               <div className="featureCont">
                 <img src={feature1} alt="test" />
-                <h4>ابحث بالتخصص والمنطقة</h4>
+                <h4>المتحدة</h4>
                 <p>
-                  {" "}
-                  اختار التخصص اللي بتدور عليه و المنطقة الأقرب ليك و دوس بحث
-                  هتلاقي مجموعة من أشطر الدكاترة تقدر تختار اقرب واحسن دكتور.
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy
                 </p>
               </div>
             </Col>
             <Col sm={5} md={4}>
               <div className="featureCont">
                 <img src={feature2} alt="test" />
-                <h4>احجز عند اشطر دكتور وادفع فى العيادة</h4>
+                <h4>المجتمع</h4>
                 <p>
-                  {" "}
-                  قارن بين تقييمات الدكاترة و سعر الكشف المناسب ليك و احجز معادك
-                  اونلاين ببلاش وادفع تمن الكشف في العيادة من غير زيادة .
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy
                 </p>
               </div>
             </Col>
             <Col sm={5} md={4}>
               <div className="featureCont">
                 <img src={feature3} alt="test" />
-                <h4>استلم روشتتك و إحفظها على حسابك</h4>
+                <h4>النهدي</h4>
                 <p>
-                  الروشتة والعلاج مش هيضيع بعد كدة لأن حسابك على كلينيدو بيخليك
-                  تقدر تحفظ كل روشتاتك و فحوصاتك و تشاركها مع دكتورك لضمان افضل
-                  تشخيص.
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy
                 </p>
               </div>
             </Col>
