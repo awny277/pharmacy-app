@@ -1,10 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import {
+  Container,
+  Nav,
+  Navbar,
+  Offcanvas,
+  DropdownButton,
+  Dropdown,
+} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import logo from "../../images/logo.png";
 import Register from "../../Pages/LoginForm/Register";
-
+import { BsFillPersonLinesFill } from "react-icons/bs";
 import "./Navbar.css";
 const NavBar = () => {
   const [ID, setId] = useState("");
@@ -47,7 +54,19 @@ const NavBar = () => {
             <NavLink to={"/compare"} className="nav-link">
               compare
             </NavLink>
-            <Register />
+            {userInfo.userName ? (
+              <DropdownButton
+                id="dropdown-basic-button"
+                title={<BsFillPersonLinesFill />}
+              >
+                <Dropdown.Item href="#/action-1">
+                  {userInfo.userName}
+                </Dropdown.Item>
+                <Register />
+              </DropdownButton>
+            ) : (
+              <Register />
+            )}
           </Nav>
         </Navbar.Collapse>
         <Navbar.Offcanvas
@@ -76,6 +95,19 @@ const NavBar = () => {
                 Admin
               </NavLink>
             </Nav>
+            {userInfo.userName ? (
+              <DropdownButton
+                id="dropdown-basic-button"
+                title={<BsFillPersonLinesFill />}
+              >
+                <Dropdown.Item href="#/action-1">
+                  {userInfo.userName}
+                </Dropdown.Item>
+                <Register />
+              </DropdownButton>
+            ) : (
+              <Register />
+            )}
           </Offcanvas.Body>
         </Navbar.Offcanvas>
       </Container>

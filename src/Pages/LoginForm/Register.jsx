@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./LoginForm.css";
+import { DropdownButton, Dropdown } from "react-bootstrap";
 
 const Register = ({ OfferHandler, SetUserId }) => {
   const [logintest, setLogin] = useState(true);
@@ -179,9 +180,14 @@ const Register = ({ OfferHandler, SetUserId }) => {
           </button>
         </div>
       ) : (
-        <button className="btn btn-danger Logout" onClick={logoutHandeller}>
-          Log out
-        </button>
+        <div>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#/action-2">
+            <button className="btn btn-danger Logout" onClick={logoutHandeller}>
+              Log out
+            </button>
+          </Dropdown.Item>
+        </div>
       )}
     </React.Fragment>
   );
