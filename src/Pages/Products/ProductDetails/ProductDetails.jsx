@@ -29,12 +29,12 @@ const ProductDetails = () => {
     <Container>
       <div className="product-details">
         <Row className="product-details-container">
-          <Col>
+          <Col md={5}>
             <div className="img-container">
               <img src={product.imgUrl} alt={product.name} />
             </div>
           </Col>
-          <Col>
+          <Col md={5}>
             <div className="product-details-content text-center">
               <h2> {product.name}</h2>
               <h3>pharmacy name: {product.pharmacyName}</h3>

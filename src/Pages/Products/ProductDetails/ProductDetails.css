@@ -3,6 +3,7 @@
 }
 .product-details .img-container {
   margin: 10px 0;
+  text-align: center;
 }
 .product-details .img-container img {
   width: 70%;
