@@ -12,6 +12,8 @@ const NavBar = () => {
   useEffect(() => {
     if (window.localStorage.getItem("userID").length > 0) {
       setId(window.localStorage.getItem("userID"));
+    } else {
+      return null;
     }
     axios
       .get("https://61a758d0387ab200171d2c12.mockapi.io/login/" + ID)
