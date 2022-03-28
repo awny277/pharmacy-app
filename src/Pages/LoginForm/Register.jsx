@@ -70,7 +70,10 @@ const Register = ({ OfferHandler, SetUserId }) => {
               userName,
               discount: false,
             })
-            .then((res) => window.localStorage.setItem("userID", res.data.id))
+            .then((res) => {
+              window.localStorage.setItem("userID", res.data.id);
+              window.location.reload(false);
+            })
             .catch((err) => console.log(err));
         }
       } else {
@@ -132,6 +135,7 @@ const Register = ({ OfferHandler, SetUserId }) => {
                 window.localStorage.setItem("userID", res.data.id);
                 window.localStorage.setItem("isOline", "true");
                 setLogin(false);
+                window.location.reload(false);
               })
               .catch((err) => console.log(err));
             navigate("/Product");
@@ -178,10 +182,6 @@ const Register = ({ OfferHandler, SetUserId }) => {
           Log out
         </button>
       )}
-
-      {/* {window.localStorage.getItem("isOline") === "true" || !logintest ? (
-        
-      ) : null} */}
     </React.Fragment>
   );
 };
