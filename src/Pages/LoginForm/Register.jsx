@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "./LoginForm.css";
 
 const Register = ({ OfferHandler, SetUserId }) => {
   const [logintest, setLogin] = useState(true);
-  const [signup, setSignup] = useState(true);
   const [userInfo, setUserInfo] = useState([]);
   const [validateAccount, setValidateAccount] = useState([]);
   const [validationEmail, setValidationEmail] = useState([]);
-  const [userLogin, setUserLogin] = useState(false);
+  const navigate = useNavigate();
 
   const logoutHandeller = () => {
     window.localStorage.setItem("userName", "");
     window.localStorage.setItem("password", "");
     window.localStorage.setItem("email", "");
     window.localStorage.setItem("userID", "");
+    window.localStorage.setItem("isOline", "false");
+    setLogin(false);
   };
   useEffect(() => {
     axios
@@ -23,10 +26,6 @@ const Register = ({ OfferHandler, SetUserId }) => {
         setUserInfo(res.data);
       });
   }, [validationEmail, validateAccount]);
-  // useEffect(() => {
-  //   console.log(userID);
-  //   SetUserId(userID);
-  // }, [userID, SetUserId]);
 
   const HandlerReister = async (e) => {
     const { value: userName } = await Swal.fire({
@@ -41,7 +40,6 @@ const Register = ({ OfferHandler, SetUserId }) => {
       input: "email",
       inputLabel: "Your email address",
       inputPlaceholder: "Enter your email address",
-      // validationMessage: "hhhhhhh",
     });
     const emailValidate = userInfo.find((ele) => {
       return ele.email.toLowerCase() === email.toLowerCase();
@@ -61,7 +59,6 @@ const Register = ({ OfferHandler, SetUserId }) => {
           },
         });
         if (password) {
-          // if (validationEmail[0].email.toLowerCase() !== Email.toLowerCase()) {
           window.localStorage.setItem("userName", userName);
           window.localStorage.setItem("password", password);
           window.localStorage.setItem("email", email);
@@ -75,7 +72,6 @@ const Register = ({ OfferHandler, SetUserId }) => {
             })
             .then((res) => window.localStorage.setItem("userID", res.data.id))
             .catch((err) => console.log(err));
-          // }
         }
       } else {
         Swal.fire({
@@ -132,16 +128,13 @@ const Register = ({ OfferHandler, SetUserId }) => {
                   loginValidate.id,
                 { ...obj }
               )
-              .then((res) => window.localStorage.setItem("userID", res.data.id))
+              .then((res) => {
+                window.localStorage.setItem("userID", res.data.id);
+                window.localStorage.setItem("isOline", "true");
+                setLogin(true);
+              })
               .catch((err) => console.log(err));
-            // window.localStorage.setItem("userName", loginValidate.userName);
-            // window.localStorage.setItem("password", password);
-            // window.localStorage.setItem("email", email);
-            // window.localStorage.getItem("password").toLowerCase() ===
-            // password.toLowerCase() &&
-            // window.localStorage.getItem("email").toLowerCase() ===
-            //   email.toLowerCase()
-            setUserLogin(true);
+            navigate("/Product");
             OfferHandler();
           } else {
             Swal.fire({
@@ -171,20 +164,23 @@ const Register = ({ OfferHandler, SetUserId }) => {
 
   return (
     <React.Fragment>
-      {signup && (
-        <button className="btn btn-danger" onClick={HandlerReister}>
-          signup
-        </button>
-      )}
-      {logintest && (
-        <button className="btn btn-primary" onClick={Loginn}>
-          Login
-        </button>
-      )}
+      {window.localStorage.getItem("isOline") === "false" ||
+      logintest === false ? (
+        <div className="register">
+          <button className="btn signup" onClick={HandlerReister}>
+            signup
+          </button>
+          <button className="btn Login" onClick={Loginn}>
+            Login
+          </button>
+        </div>
+      ) : null}
 
-      <button className="btn btn-danger" onClick={logoutHandeller}>
-        Log out
-      </button>
+      {window.localStorage.getItem("isOline") === "true" && (
+        <button className="btn btn-danger Logout" onClick={logoutHandeller}>
+          Log out
+        </button>
+      )}
     </React.Fragment>
   );
 };

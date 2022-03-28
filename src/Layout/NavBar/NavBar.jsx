@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import logo from "../../images/logo.png";
+import Register from "../../Pages/LoginForm/Register";
+
 import "./Navbar.css";
 const NavBar = () => {
   const [ID, setId] = useState("");
@@ -40,9 +42,10 @@ const NavBar = () => {
             <NavLink to={"/admin"} className="nav-link">
               DashBoard
             </NavLink>
-            <NavLink to={"/register"} className="nav-link">
+            {/* <NavLink to={"/register"} className="nav-link">
               Login
-            </NavLink>
+            </NavLink> */}
+            <Register />
           </Nav>
         </Navbar.Collapse>
         <Navbar.Offcanvas
@@ -70,6 +73,7 @@ const NavBar = () => {
               <NavLink to={"/admin"} className="nav-link">
                 Admin
               </NavLink>
+              <Register />
               {/* <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#link1">Admin</Nav.Link>
               <Nav.Link href="#link2">Search</Nav.Link> */}
