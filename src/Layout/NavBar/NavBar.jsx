@@ -44,6 +44,9 @@ const NavBar = () => {
             <NavLink to={"/admin"} className="nav-link">
               DashBoard
             </NavLink>
+            <NavLink to={"/compare"} className="nav-link">
+              compare
+            </NavLink>
             <Register />
           </Nav>
         </Navbar.Collapse>

@@ -1,0 +1,33 @@
+.data-compare {
+  /* min-height: 52vh; */
+}
+.data-compare .img-container img{
+  width: 50%;
+}
+
+.data-compare h1 {
+  color: var(--main-Parg);
+  margin: 15px 0 20px;
+}
+.data-compare .data-content {
+  position: relative;
+}
+.deletebtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.deletebtn:focus {
+  box-shadow: none;
+}
+.deletebtn .delete {
+  font-size: 25px;
+  color: var(--bs-danger);
+}
+.imgNotfound {
+  width: 80%;
+}
+
+.notfoundText {
+  color: var(--bs-danger);
+}

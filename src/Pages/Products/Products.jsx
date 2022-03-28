@@ -5,10 +5,11 @@ import { Col, Container, Row, FloatingLabel, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./Products.css";
 
-const Product = ({ searchName, OfferHandler }) => {
+const Product = ({ searchName, OfferHandler, setdataCompare }) => {
   const [search, setSearch] = useState(searchName);
   const [products, setProducts] = useState([]);
   const [result, setResult] = useState([]);
+  const [compare, setCompare] = useState(true);
   const navigate = useNavigate();
   useEffect(() => {
     axios
@@ -61,6 +62,10 @@ const Product = ({ searchName, OfferHandler }) => {
                     pharmacyName={ele.pharmacyName}
                     discount={ele.discount}
                     ClickHandel={() => navigate(`/Product/${ele.id}`)}
+                    result={result}
+                    setdataCompare={setdataCompare}
+                    compare={ele.compare}
+                    ElementId={ele.id}
                   />
                 </Col>
               );

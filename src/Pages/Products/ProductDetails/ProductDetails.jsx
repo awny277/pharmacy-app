@@ -5,7 +5,7 @@ import image from "../../../images/panadol.png";
 import { Container, Row, Col } from "react-bootstrap";
 import "./ProductDetails.css";
 import Card from "../../../Layout/Card/Card";
-const ProductDetails = () => {
+const ProductDetails = ({ setdataCompare }) => {
   const [product, setproduct] = useState([]);
   const [SimilarProducts, setSimilarProducts] = useState([]);
   const navigate = useNavigate();
@@ -68,6 +68,10 @@ const ProductDetails = () => {
                   pharmacyName={ele.pharmacyName}
                   discount={ele.discount}
                   ClickHandel={() => navigate(`/Product/${ele.id}`)}
+                  result={SimilarProducts}
+                  setdataCompare={setdataCompare}
+                  compare={ele.compare}
+                  ElementId={ele.id}
                 />
               </Col>
             );

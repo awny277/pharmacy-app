@@ -7,11 +7,17 @@ import Footer from "./Layout/Footer/Footer";
 import Product from "./Pages/Products/Products";
 import ProductDetails from "./Pages/Products/ProductDetails/ProductDetails";
 import Register from "./Pages/LoginForm/Register";
+import Compare from "./Pages/Compare/Compare";
 import "./App.css";
 
 function App() {
   const [searchName, setSearchName] = useState("");
   const [userId, setUserId] = useState("");
+  const [dataComapre, setdataCompare] = useState([]);
+
+  const getCompareData = (data) => {
+    setdataCompare(data);
+  };
 
   const GetUserIdHandeller = (id) => {
     setUserId(id);
@@ -36,9 +42,24 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route
           path="/Product"
-          element={<Product searchName={searchName} OfferHandler={userLogin} />}
+          element={
+            <Product
+              searchName={searchName}
+              OfferHandler={userLogin}
+              setdataCompare={(data) => getCompareData(data)}
+            />
+          }
         />
-        <Route path="/Product/:id" element={<ProductDetails />} />
+        <Route
+          path="/Product/:id"
+          element={
+            <ProductDetails setdataCompare={(data) => getCompareData(data)} />
+          }
+        />
+        <Route
+          path="/compare"
+          element={<Compare dataComapre={dataComapre} />}
+        />
         <Route
           path="/register"
           element={
