@@ -17,6 +17,7 @@ const Register = ({ OfferHandler, SetUserId }) => {
     window.localStorage.setItem("email", "");
     window.localStorage.setItem("userID", "");
     window.localStorage.setItem("isOline", "false");
+    window.location.reload(false);
     setLogin(true);
   };
   useEffect(() => {
