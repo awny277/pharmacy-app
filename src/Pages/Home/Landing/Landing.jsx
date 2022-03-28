@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
+import Register from "../../LoginForm/Register";
 import "./Landing.css";
 
 const Landing = ({ searchName }) => {
@@ -52,6 +53,11 @@ const Landing = ({ searchName }) => {
                   <h2 style={{ margin: "0 10px" }}>
                     Pay at the clinic with no extra
                   </h2>
+                  <div className="landingLogin">
+                    {window.localStorage.getItem("userID") === "" && (
+                      <Register />
+                    )}
+                  </div>
                 </div>
               </div>
             </Col>

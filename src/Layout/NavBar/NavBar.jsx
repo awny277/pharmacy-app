@@ -95,19 +95,7 @@ const NavBar = () => {
                 Admin
               </NavLink>
             </Nav>
-            {userInfo.userName ? (
-              <DropdownButton
-                id="dropdown-basic-button"
-                title={<BsFillPersonLinesFill />}
-              >
-                <Dropdown.Item href="#/action-1">
-                  {userInfo.userName}
-                </Dropdown.Item>
-                <Register />
-              </DropdownButton>
-            ) : (
-              <Register />
-            )}
+            {userInfo.userName && <Register />}
           </Offcanvas.Body>
         </Navbar.Offcanvas>
       </Container>

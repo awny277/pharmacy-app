@@ -136,3 +136,10 @@
     flex-basis: 75%;
   }
 }
+
+@media (min-width: 992px) { 
+  .landingLogin {
+    display: none;
+  }
+
+ }
