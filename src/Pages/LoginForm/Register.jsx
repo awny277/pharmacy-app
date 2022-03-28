@@ -17,7 +17,7 @@ const Register = ({ OfferHandler, SetUserId }) => {
     window.localStorage.setItem("email", "");
     window.localStorage.setItem("userID", "");
     window.localStorage.setItem("isOline", "false");
-    setLogin(false);
+    setLogin(true);
   };
   useEffect(() => {
     axios
@@ -131,7 +131,7 @@ const Register = ({ OfferHandler, SetUserId }) => {
               .then((res) => {
                 window.localStorage.setItem("userID", res.data.id);
                 window.localStorage.setItem("isOline", "true");
-                setLogin(true);
+                setLogin(false);
               })
               .catch((err) => console.log(err));
             navigate("/Product");
@@ -164,7 +164,7 @@ const Register = ({ OfferHandler, SetUserId }) => {
 
   return (
     <React.Fragment>
-      {!window.localStorage.getItem("isOline") || logintest ? (
+      {!window.localStorage.getItem("isOline") || !logintest ? (
         <div className="register">
           <button className="btn signup" onClick={HandlerReister}>
             signup
