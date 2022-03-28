@@ -8,7 +8,7 @@ const Card = ({ name, price, imgUrl, ClickHandel, discount, pharmacyName }) => {
       </div>
       <div className="card-content">
         <h4>{name}</h4>
-        {window.localStorage.getItem("userID").length > 0 ? (
+        {window.localStorage.getItem("userID") ? (
           <div className="price">
             <span className="card-discount">discount: {discount}$</span>
             <del className="card-price">price: {price}$</del>
