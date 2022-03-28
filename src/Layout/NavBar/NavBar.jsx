@@ -10,7 +10,7 @@ const NavBar = () => {
   const [ID, setId] = useState("");
   const [userInfo, setUserInfo] = useState([]);
   useEffect(() => {
-    if (window.localStorage.getItem("userID").length > 0) {
+    if (window.localStorage.getItem("userID")) {
       setId(window.localStorage.getItem("userID"));
     } else {
       return null;
