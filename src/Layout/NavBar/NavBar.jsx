@@ -66,16 +66,12 @@ const NavBar = () => {
               >
                 Home
               </NavLink>
-              <NavLink to={"/search"} className="nav-link">
-                search
+              <NavLink to={"/Product"} className="nav-link">
+                Product
               </NavLink>
               <NavLink to={"/admin"} className="nav-link">
                 Admin
               </NavLink>
-              <Register />
-              {/* <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link1">Admin</Nav.Link>
-              <Nav.Link href="#link2">Search</Nav.Link> */}
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>

@@ -5,6 +5,7 @@ import slide2 from "../../../images/study-pharmacy.jpg";
 import slide3 from "../../../images/search-bg.png";
 import { Container, Row, Col } from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
+import Register from "../../LoginForm/Register";
 import "./Landing.css";
 
 const Landing = ({ searchName }) => {
@@ -56,14 +57,7 @@ const Landing = ({ searchName }) => {
                   <h2 style={{ margin: "0 10px" }}>
                     Pay at the clinic with no extra
                   </h2>
-                  <NavLink
-                    to="/"
-                    className="btn"
-                    style={{ marginBottom: "10px" }}
-                  >
-                    <i className="fas fa-phone" style={{ margin: "0 " }}></i>{" "}
-                    Call us{" "}
-                  </NavLink>
+                  <Register />
                 </div>
                 {/* <p>ادفع فى العيادة من غير زيادة</p> */}
               </div>
