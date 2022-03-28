@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 // import { Carousel } from "react-bootstrap";
 import slide1 from "../../../images/pharmacy-with-pharmacist-in-counter-and-people-buying-medicine-vector.jpg";
 import slide2 from "../../../images/study-pharmacy.jpg";
 import slide3 from "../../../images/search-bg.png";
 import { Container, Row, Col } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Landing.css";
 
-const Landing = () => {
+const Landing = ({ searchName }) => {
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  const searchHandlerBtn = () => {
+    searchName(search);
+    navigate("/Product");
+  };
   return (
     <React.Fragment>
       <Container fluid className="HomeLanding text-center">
@@ -28,12 +34,18 @@ const Landing = () => {
                       name=""
                       id=""
                       placeholder="Search For a cure"
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
                     />
                   </div>
-                  <NavLink to="/" className="btn SearchButton">
+                  <button
+                    onClick={() => searchHandlerBtn()}
+                    to="/"
+                    className="btn SearchButton"
+                  >
                     <i className="fas fa-search "></i>
                     بحث
-                  </NavLink>
+                  </button>
                 </div>
               </div>
             </Col>

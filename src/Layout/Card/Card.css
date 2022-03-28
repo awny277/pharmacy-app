@@ -1,0 +1,89 @@
+.cards {
+  width: 95%;
+  /* cursor: pointer; */
+  text-align: center;
+  box-shadow: inset 1px 1px 20px 20px #c3c3c31c;
+  overflow: hidden;
+  border-radius: 6%;
+  -webkit-border-radius: 6%;
+  -moz-border-radius: 6%;
+  -ms-border-radius: 6%;
+  -o-border-radius: 6%;
+  margin: 10px 0;
+}
+
+.card-image {
+  overflow: hidden;
+  background-color: #EBEBEB;
+}
+
+.card-image img {
+  width: 80%;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+
+.cards:hover .card-image img {
+  transform: scale(1.1) ;
+  -webkit-transform: scale(1.1) ;
+  -moz-transform: scale(1.1) ;
+  -ms-transform: scale(1.1) ;
+  -o-transform: scale(1.1) ;
+}
+
+.card-content {
+  padding: 5px;
+}
+
+.card-content h4 {
+  margin: 10px 0 5px;
+  font-size: var(--fontsize-medium);
+}
+
+.card-price {
+  font-size: var(--fontsize-medium);
+  font-weight: var(--fontWeight-light);
+}
+
+.card-discount {
+  margin-left: 15px;
+  color: gray;
+  font-size: var(--fontsize-normal);
+  font-weight: var(--fontWeight-light);
+}
+.cards .price {
+  display: flex;
+  /* justify-content: space-evenly; */
+  justify-content: center;
+  align-items: center;
+}
+
+.cards .price span {
+  color: var(--bs-gray-dark);
+  margin-right: 10px;
+}
+.cards .price del {
+  color: var(--bs-gray);
+}
+.cards h4 {
+  color: var(--main-Parg);
+}
+.viewBtn {
+  border-color: var(--main-Parg);
+  color: var(--main-Parg);
+  font-weight: 500;
+  cursor: pointer;
+  transition:0.4s ;
+  -webkit-transition:0.4s ;
+  -moz-transition:0.4s ;
+  -ms-transition:0.4s ;
+  -o-transition:0.4s ;
+}
+
+.viewBtn:hover {
+  background-color: var(--main-Parg);
+  color: var(--bs-white);
+}

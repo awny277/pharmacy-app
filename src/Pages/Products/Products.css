@@ -1,0 +1,14 @@
+.searchInput {
+  margin: 30px auto ;
+  justify-content: center ;
+  align-items: center ;
+}
+
+.product-search-container {
+  margin: 30px 0;
+}
+
+.products-search-page h1 {
+  color: var(--main-Parg);
+  margin: 15px 0;
+}
