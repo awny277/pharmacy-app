@@ -50,6 +50,7 @@ function App() {
           }
         />
       </Routes>
+      <Register />
       <Footer />
     </React.Fragment>
   );
