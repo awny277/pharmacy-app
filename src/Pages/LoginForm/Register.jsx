@@ -164,8 +164,7 @@ const Register = ({ OfferHandler, SetUserId }) => {
 
   return (
     <React.Fragment>
-      {window.localStorage.getItem("isOline") === "false" ||
-      logintest === false ? (
+      {window.localStorage.getItem("isOline") === "false" || logintest ? (
         <div className="register">
           <button className="btn signup" onClick={HandlerReister}>
             signup
@@ -176,11 +175,11 @@ const Register = ({ OfferHandler, SetUserId }) => {
         </div>
       ) : null}
 
-      {window.localStorage.getItem("isOline") === "true" && (
+      {window.localStorage.getItem("isOline") === "true" || !logintest ? (
         <button className="btn btn-danger Logout" onClick={logoutHandeller}>
           Log out
         </button>
-      )}
+      ) : null}
     </React.Fragment>
   );
 };
