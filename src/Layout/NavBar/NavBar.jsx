@@ -94,6 +94,9 @@ const NavBar = () => {
               <NavLink to={"/admin"} className="nav-link">
                 Admin
               </NavLink>
+              <NavLink to={"/compare"} className="nav-link">
+                compare
+              </NavLink>
             </Nav>
             {userInfo.userName && <Register />}
           </Offcanvas.Body>
