@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Card.css";
 import { GoGitCompare } from "react-icons/go";
 import axios from "axios";
+import Compare from "./../../Pages/Compare/Compare";
 
 const Card = ({
   name,
@@ -17,6 +18,7 @@ const Card = ({
 }) => {
   // const [reultCompare, setResultComapre] = useState([]);
   // const [comapredata, setComapre] = useState(false);
+  const [compareBtn, setCompareBtn] = useState(null);
 
   const HandeladdToCompare = () => {
     if (compare === false) {
@@ -28,10 +30,12 @@ const Card = ({
         pharmacyName: pharmacyName,
         compare: true,
       };
-      axios.put(
-        "https://61a758d0387ab200171d2c12.mockapi.io/products/" + ElementId,
-        { ...obj }
-      );
+      axios
+        .put(
+          "https://61a758d0387ab200171d2c12.mockapi.io/products/" + ElementId,
+          { ...obj }
+        )
+        .then(setCompareBtn(true));
     } else {
       const obj = {
         name: name,
@@ -41,10 +45,12 @@ const Card = ({
         pharmacyName: pharmacyName,
         compare: false,
       };
-      axios.put(
-        "https://61a758d0387ab200171d2c12.mockapi.io/products/" + ElementId,
-        { ...obj }
-      );
+      axios
+        .put(
+          "https://61a758d0387ab200171d2c12.mockapi.io/products/" + ElementId,
+          { ...obj }
+        )
+        .then(setCompareBtn(false));
     }
   };
   return (
@@ -70,7 +76,7 @@ const Card = ({
         </button>
         <button className="btn m-2 compare-Btn " onClick={HandeladdToCompare}>
           <GoGitCompare
-            className={`compare ${compare === true ? "active" : null}`}
+            className={`compare ${compareBtn === true ? "active" : null}`}
           />
         </button>
       </div>
