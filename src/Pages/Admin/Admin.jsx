@@ -37,7 +37,7 @@ const Admin = () => {
         .post("https://61a758d0387ab200171d2c12.mockapi.io/products", {
           ...obj,
         })
-        .then((res) => window.location.reload(false))
+        .then(window.location.reload(false))
         .catch((err) => console.log(err));
       setName("");
       setPrice("");
