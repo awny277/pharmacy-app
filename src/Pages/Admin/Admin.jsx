@@ -13,30 +13,38 @@ const Admin = () => {
     "https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/panadol/en_eg/Products/CF%20455%20Eng%20eg_new.png?auto=format"
   );
 
-  const submitHandel = () => {
-    const result = parseInt(price) - (parseInt(price) * 10) / 100;
-    setDiscount(result);
-    console.log(result);
-    console.log(discount);
-    const obj = {
-      name,
-      price,
-      pharmacyName,
-      description,
-      discount: result,
-      imgUrl,
-    };
-    axios
-      .post("https://61a758d0387ab200171d2c12.mockapi.io/products", {
-        ...obj,
-      })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-    setName("");
-    setPrice("");
-    setPharmacyName("");
-    setDescription("");
-    setDiscount("");
+  const submitHandel = (e) => {
+    if (
+      name.length === 0 ||
+      price.length === 0 ||
+      pharmacyName.length === 0 ||
+      description.length === 0 ||
+      imgUrl.length === 0
+    ) {
+      e.preventDefault();
+    } else {
+      const result = parseInt(price) - (parseInt(price) * 10) / 100;
+      setDiscount(result);
+      const obj = {
+        name,
+        price,
+        pharmacyName,
+        description,
+        discount: result,
+        imgUrl,
+      };
+      axios
+        .post("https://61a758d0387ab200171d2c12.mockapi.io/products", {
+          ...obj,
+        })
+        .then((res) => window.location.reload(false))
+        .catch((err) => console.log(err));
+      setName("");
+      setPrice("");
+      setPharmacyName("");
+      setDescription("");
+      setDiscount("");
+    }
   };
   return (
     <Container>
