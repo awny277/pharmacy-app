@@ -57,7 +57,6 @@ const Landing = ({ searchName }) => {
                     {window.localStorage.getItem("userID") === "" && (
                       <Register />
                     )}
-                    <Register />
                   </div>
                 </div>
               </div>
