@@ -19,15 +19,15 @@ const NavBar = () => {
   useEffect(() => {
     if (window.localStorage.getItem("userID")) {
       setId(window.localStorage.getItem("userID"));
+      axios
+        .get("https://61a758d0387ab200171d2c12.mockapi.io/login/" + ID)
+        .then((res) => {
+          setUserInfo(res.data);
+        })
+        .catch((err) => console.log(err));
     } else {
       return null;
     }
-    axios
-      .get("https://61a758d0387ab200171d2c12.mockapi.io/login/" + ID)
-      .then((res) => {
-        setUserInfo(res.data);
-      })
-      .catch((err) => console.log(err));
   }, [ID]);
   return (
     <Navbar bg="light" expand="lg" sticky="top">
