@@ -61,9 +61,6 @@ const Register = ({ OfferHandler, SetUserId }) => {
           },
         });
         if (password) {
-          window.localStorage.setItem("userName", userName);
-          window.localStorage.setItem("password", password);
-          window.localStorage.setItem("email", email);
           setValidationEmail(emailValidate);
           axios
             .post("https://61a758d0387ab200171d2c12.mockapi.io/login", {
@@ -73,11 +70,15 @@ const Register = ({ OfferHandler, SetUserId }) => {
               discount: true,
             })
             .then((res) => {
+              window.localStorage.setItem("userName", userName);
+              window.localStorage.setItem("password", password);
+              window.localStorage.setItem("email", email);
               window.localStorage.setItem("userID", res.data.id);
               window.localStorage.setItem("isOline", "true");
               window.location.reload(false);
             })
             .catch((err) => console.log(err));
+          navigate("/Product");
         }
       } else {
         Swal.fire({
