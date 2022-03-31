@@ -54,7 +54,7 @@ const NavBar = () => {
             <NavLink to={"/compare"} className="nav-link">
               compare
             </NavLink>
-            {userInfo.userName === window.localStorage.getItem("userName") ? (
+            {userInfo.userName ? (
               <DropdownButton
                 id="dropdown-basic-button"
                 title={<BsFillPersonLinesFill />}
