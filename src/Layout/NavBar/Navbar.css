@@ -61,3 +61,12 @@
 .btn-check:active+.btn-primary, .btn-check:checked+.btn-primary, .btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle {
   background-color: var(--main-Parg);
 }
+.dropdown #dropdown-basic-button {
+  background-color: transparent !important;
+  color: black;
+  border: none;
+}
+
+.UserIcon {
+  color: black;
+}

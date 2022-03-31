@@ -57,7 +57,7 @@ const NavBar = () => {
             {window.localStorage.getItem("isOline") === "true" ? (
               <DropdownButton
                 id="dropdown-basic-button"
-                title={<BsFillPersonLinesFill />}
+                title={<BsFillPersonLinesFill className="UserIcon" />}
               >
                 <Dropdown.Item href="#/action-1">
                   {userInfo.userName}
