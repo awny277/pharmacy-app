@@ -68,9 +68,9 @@
   border: 1px solid #6a6a6a24;
   font-size: 17px;
 }
-.touch-form a
+.touch-form .btnMail
 {
-  width: 146px;
+  /* width: 146px; */
   text-decoration: none;
   /* padding: 20px 25px; */
   padding: 10px 15px;
@@ -82,8 +82,9 @@
   -moz-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  background-color: transparent;
 }
-.touch-form a:hover
+.touch-form .btnMail:hover
 {
   color: #0791F6;
   background-color: #092A49;

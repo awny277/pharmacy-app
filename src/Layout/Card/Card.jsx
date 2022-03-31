@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Card.css";
 import { GoGitCompare } from "react-icons/go";
 import axios from "axios";
-import Compare from "./../../Pages/Compare/Compare";
 
 const Card = ({
   name,
@@ -12,12 +11,10 @@ const Card = ({
   discount,
   pharmacyName,
   compare,
-  setdataCompare,
-  result,
+  // setdataCompare,
+  // result,
   ElementId,
 }) => {
-  // const [reultCompare, setResultComapre] = useState([]);
-  // const [comapredata, setComapre] = useState(false);
   const [compareBtn, setCompareBtn] = useState(null);
 
   const HandeladdToCompare = () => {
