@@ -172,16 +172,7 @@ const Register = ({ OfferHandler, SetUserId }) => {
 
   return (
     <React.Fragment>
-      {window.localStorage.getItem("isOline") === "false" ? (
-        <div className="registerr">
-          <button className="btn signup" onClick={HandlerReister}>
-            signup
-          </button>
-          <button className="btn Login" onClick={Loginn}>
-            Login
-          </button>
-        </div>
-      ) : (
+      {window.localStorage.getItem("isOline") === "true" ? (
         <div>
           <Dropdown.Divider />
           <Dropdown.Item href="#/action-2">
@@ -189,6 +180,15 @@ const Register = ({ OfferHandler, SetUserId }) => {
               Log out
             </button>
           </Dropdown.Item>
+        </div>
+      ) : (
+        <div className="registerr">
+          <button className="btn signup" onClick={HandlerReister}>
+            signup
+          </button>
+          <button className="btn Login" onClick={Loginn}>
+            Login
+          </button>
         </div>
       )}
     </React.Fragment>
