@@ -54,7 +54,7 @@ const Landing = ({ searchName }) => {
                     Pay at the clinic with no extra
                   </h2>
                   <div className="landingLogin">
-                    {window.localStorage.getItem("userID") !== "" ? (
+                    {window.localStorage.getItem("isOline") === "true" ? (
                       <div></div>
                     ) : (
                       <Register />
