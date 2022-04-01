@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-// import Card from "../../Layout/Card/Card";
 import { Col, Container, Row } from "react-bootstrap";
 import "./Compare.css";
-// TiDeleteOutline
 import { TiDeleteOutline } from "react-icons/ti";
-import imgNotfound from "../../images/notfound1.png";
+import imgNotfound from "../../images/notfound2.svg";
 
 const Compare = () => {
   const [data, setData] = useState([]);
-
-  const result = data.filter((e) => e.compare === true);
-
+  const result = data
+    .filter((e) => e.compare === true)
+    .sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
   const deletHandeller = (ele) => {
     const obj = {
       name: ele.name,
@@ -26,7 +24,6 @@ const Compare = () => {
         ...obj,
       })
       .then((res) => {
-        console.log(res.data);
         const filterData = result.filter((e) => e.id !== res.data.id);
         setData(filterData);
       });
@@ -41,11 +38,20 @@ const Compare = () => {
   return (
     <Container className="text-center data-compare">
       <h1 className="text-center"> Comparison of medicines</h1>
-      <Row>
-        {result.length > 0 ? (
-          result.map((ele, idx) => {
-            return (
-              <Col md={6} key={idx}>
+      {result.length > 0 ? (
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Pharmacy </th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {result.map((ele, idx) => {
+              return (
+                /* <Col md={6} key={idx}>
                 <div className="data-content">
                   <Row>
                     <Col xs={12}>
@@ -80,20 +86,35 @@ const Compare = () => {
                     <TiDeleteOutline className="delete" />
                   </button>
                 </div>
-              </Col>
-            );
-          })
-        ) : (
-          <div>
-            <h2 className="notfoundText">there is no data to compare</h2>
-            <img
-              className="imgNotfound"
-              src={imgNotfound}
-              alt="there is no data to compare"
-            />
-          </div>
-        )}
-      </Row>
+              </Col> */
+                <tr>
+                  <td data-label="Name">{ele.name}</td>
+                  <td data-label="Price">{ele.price}$</td>
+                  <td data-label="Pharmacy">{ele.pharmacyName}</td>
+                  <td>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => deletHandeller(ele)}
+                    >
+                      {" "}
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      ) : (
+        <div>
+          <h2 className="notfoundText">there is no data to compare</h2>
+          <img
+            className="imgNotfound"
+            src={imgNotfound}
+            alt="there is no data to compare"
+          />
+        </div>
+      )}
     </Container>
   );
 };

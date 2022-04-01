@@ -16,7 +16,7 @@
 
 .add-project-content .cloumn {
   box-shadow: var(--box-shadow);
-  background-color: var(--color-white);
+  background-color: white;
   margin:10px 0;
   padding: 20px;
   border-radius: 10px;
