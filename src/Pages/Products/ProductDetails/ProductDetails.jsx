@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import image from "../../../images/panadol.png";
 import { Container, Row, Col } from "react-bootstrap";
 import "./ProductDetails.css";
 import Card from "../../../Layout/Card/Card";
