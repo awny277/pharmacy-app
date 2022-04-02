@@ -29,6 +29,53 @@ const Register = ({ OfferHandler, SetUserId }) => {
       });
   }, [validationEmail, validateAccount]);
 
+  const HandelForgetPassword = async () => {
+    const { value: email } = await Swal.fire({
+      // allowOutsideClick: false,
+      title: "Ener Your Account",
+      input: "email",
+      inputLabel: "Your email address",
+      inputPlaceholder: "Enter your email address",
+    });
+    const accoundValidation = userInfo.find((ele) => {
+      return ele.email.toLowerCase() === email.toLowerCase();
+    });
+    if (email) {
+      const { value: password } = await Swal.fire({
+        title: "Enter your password",
+        input: "password",
+        inputLabel: "Password",
+        inputPlaceholder: "Enter your New password",
+        inputAttributes: {
+          maxlength: 10,
+          autocapitalize: "off",
+          autocorrect: "off",
+        },
+      });
+      if (password) {
+        axios
+          .put(
+            "https://61a758d0387ab200171d2c12.mockapi.io/login/" +
+              accoundValidation.id,
+            {
+              email,
+              password,
+            }
+          )
+          .then((res) => {
+            window.localStorage.setItem("userName", accoundValidation.userName);
+            window.localStorage.setItem("password", password);
+            window.localStorage.setItem("email", email);
+            window.localStorage.setItem("userID", res.data.id);
+            window.localStorage.setItem("isOline", "true");
+            window.location.reload(false);
+          })
+          .catch((err) => console.log(err));
+        navigate("/Product");
+      }
+    }
+  };
+
   const HandlerReister = async (e) => {
     const { value: userName } = await Swal.fire({
       title: "User Name",
@@ -37,59 +84,87 @@ const Register = ({ OfferHandler, SetUserId }) => {
       inputPlaceholder: "Enter your userName",
     });
 
-    const { value: email } = await Swal.fire({
-      title: "Register",
-      input: "email",
-      inputLabel: "Your email address",
-      inputPlaceholder: "Enter your email address",
-    });
-    const emailValidate = userInfo.find((ele) => {
-      return ele.email.toLowerCase() === email.toLowerCase();
-    });
+    if (userName) {
+      const { value: userId } = await Swal.fire({
+        title: "Enter the card number",
+        input: "number",
+        inputLabel: "Your Card Number",
+        inputPlaceholder: "Enter the card number",
+      });
+      const emailValidate = userInfo.find((ele) => {
+        return ele.userId === userId;
+      });
 
-    if (email) {
-      if (!emailValidate) {
-        const { value: password } = await Swal.fire({
-          title: "Enter your password",
-          input: "password",
-          inputLabel: "Password",
-          inputPlaceholder: "Enter your password",
-          inputAttributes: {
-            maxlength: 10,
-            autocapitalize: "off",
-            autocorrect: "off",
-          },
-        });
-        if (password) {
-          setValidationEmail(emailValidate);
-          axios
-            .post("https://61a758d0387ab200171d2c12.mockapi.io/login", {
-              email,
-              password,
-              userName,
-              discount: true,
-            })
-            .then((res) => {
-              window.localStorage.setItem("userName", userName);
-              window.localStorage.setItem("password", password);
-              window.localStorage.setItem("email", email);
-              window.localStorage.setItem("userID", res.data.id);
-              window.localStorage.setItem("isOline", "true");
-              window.location.reload(false);
-            })
-            .catch((err) => console.log(err));
-          navigate("/Product");
+      if (userId) {
+        if (!emailValidate) {
+          const { value: email } = await Swal.fire({
+            title: "Register",
+            input: "email",
+            inputLabel: "Your email address",
+            inputPlaceholder: "Enter your email address",
+          });
+
+          const accoundValidation = userInfo.find((ele) => {
+            return ele.email.toLowerCase() === email.toLowerCase();
+          });
+
+          if (email) {
+            if (!accoundValidation) {
+              const { value: password } = await Swal.fire({
+                title: "Enter your password",
+                input: "password",
+                inputLabel: "Password",
+                inputPlaceholder: "Enter your password",
+                inputAttributes: {
+                  maxlength: 10,
+                  autocapitalize: "off",
+                  autocorrect: "off",
+                },
+              });
+              if (password) {
+                setValidationEmail(emailValidate);
+                axios
+                  .post("https://61a758d0387ab200171d2c12.mockapi.io/login", {
+                    email,
+                    password,
+                    userName,
+                    userId: userId,
+                    discount: true,
+                  })
+                  .then((res) => {
+                    window.localStorage.setItem("userName", userName);
+                    window.localStorage.setItem("password", password);
+                    window.localStorage.setItem("email", email);
+                    window.localStorage.setItem("userID", res.data.id);
+                    window.localStorage.setItem("isOline", "true");
+                    window.location.reload(false);
+                  })
+                  .catch((err) => console.log(err));
+                navigate("/Product");
+              }
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "This User is Signup Befor",
+                footer: `<button class="register btn" >register</button>`,
+              });
+              document.querySelector(".register").onclick = () => {
+                HandlerReister();
+              };
+            }
+          }
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "This User is Signup Befor",
+            footer: `<button class="register btn" >register</button>`,
+          });
+          document.querySelector(".register").onclick = () => {
+            HandlerReister();
+          };
         }
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "This User is Signup Befor",
-          footer: `<button class="register btn" >register</button>`,
-        });
-        document.querySelector(".register").onclick = () => {
-          HandlerReister();
-        };
       }
     }
   };
@@ -149,10 +224,10 @@ const Register = ({ OfferHandler, SetUserId }) => {
               icon: "error",
               title: "Oops...",
               text: "Emaill or Password is Wrong",
-              footer: `<button class="register btn" >register</button>`,
+              footer: `<button class="Forget btn" >Forget Password</button>`,
             });
-            document.querySelector(".register").onclick = () => {
-              HandlerReister();
+            document.querySelector(".Forget").onclick = () => {
+              HandelForgetPassword();
             };
           }
         }

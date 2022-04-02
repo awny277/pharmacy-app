@@ -7,7 +7,7 @@ import Footer from "./Layout/Footer/Footer";
 import Product from "./Pages/Products/Products";
 import ProductDetails from "./Pages/Products/ProductDetails/ProductDetails";
 import Register from "./Pages/LoginForm/Register";
-import Compare from "./Pages/Compare/Compare";
+// import Compare from "./Pages/Compare/Compare";
 import "./App.css";
 
 function App() {
@@ -56,10 +56,10 @@ function App() {
             <ProductDetails setdataCompare={(data) => getCompareData(data)} />
           }
         />
-        <Route
+        {/* <Route
           path="/compare"
           element={<Compare dataComapre={dataComapre} />}
-        />
+        /> */}
         <Route
           path="/register"
           element={

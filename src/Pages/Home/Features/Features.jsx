@@ -16,33 +16,18 @@ const Feature = () => {
               <div className="featureCont">
                 <img src={feature1} alt="test" />
                 <h4>المتحدة</h4>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy
-                </p>
               </div>
             </Col>
             <Col sm={5} md={4}>
               <div className="featureCont">
                 <img src={feature2} alt="test" />
                 <h4>المجتمع</h4>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy
-                </p>
               </div>
             </Col>
             <Col sm={5} md={4}>
               <div className="featureCont">
                 <img src={feature3} alt="test" />
                 <h4>النهدي</h4>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy
-                </p>
               </div>
             </Col>
           </Row>

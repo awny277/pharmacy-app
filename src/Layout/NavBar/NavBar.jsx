@@ -51,9 +51,9 @@ const NavBar = () => {
             <NavLink to={"/admin"} className="nav-link">
               DashBoard
             </NavLink>
-            <NavLink to={"/compare"} className="nav-link">
+            {/* <NavLink to={"/compare"} className="nav-link">
               compare
-            </NavLink>
+            </NavLink> */}
             {window.localStorage.getItem("isOline") === "true" ? (
               <DropdownButton
                 id="dropdown-basic-button"
@@ -94,9 +94,9 @@ const NavBar = () => {
               <NavLink to={"/admin"} className="nav-link">
                 Admin
               </NavLink>
-              <NavLink to={"/compare"} className="nav-link">
+              {/* <NavLink to={"/compare"} className="nav-link">
                 compare
-              </NavLink>
+              </NavLink> */}
             </Nav>
             {userInfo.userName && <Register />}
           </Offcanvas.Body>

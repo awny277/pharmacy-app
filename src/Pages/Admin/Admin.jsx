@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Container, FloatingLabel, Form, Row } from "react-bootstrap";
+import Swal from "sweetalert2";
 import "./Admin.css";
 
 const Admin = () => {
@@ -13,7 +14,36 @@ const Admin = () => {
     "https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/panadol/en_eg/Products/CF%20455%20Eng%20eg_new.png?auto=format"
   );
 
+  const [data, setData] = useState([]);
+  const [resultValidation, setResult] = useState([]);
+
+  const HandelReselt = () => {
+    setName("");
+    setPrice("");
+    setPharmacyName("");
+    setDescription("");
+    setDiscount("");
+    window.location.reload(false);
+  };
+
+  useEffect(() => {
+    axios
+      .get("https://61a758d0387ab200171d2c12.mockapi.io/products")
+      .then((res) => setData(res.data));
+  }, [resultValidation]);
+
+  // console.log(resultValidation);
+
   const submitHandel = (e) => {
+    const product = data.find((ele) => {
+      return (
+        ele.name.toLowerCase().includes(name.toLowerCase()) &&
+        ele.pharmacyName === pharmacyName
+      );
+    });
+    setResult(product);
+
+    // console.log(resultValidation);
     if (
       name.length === 0 ||
       price.length === 0 ||
@@ -22,6 +52,38 @@ const Admin = () => {
       imgUrl.length === 0
     ) {
       e.preventDefault();
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
+      Toast.fire({
+        icon: "error",
+        title: "All data must be entered",
+      });
+    } else if (product) {
+      e.preventDefault();
+      const ErrorTest = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
+      ErrorTest.fire({
+        icon: "error",
+        title: "This product already exists",
+      });
     } else {
       const result = parseInt(price) - (parseInt(price) * 10) / 100;
       setDiscount(result);
@@ -37,13 +99,8 @@ const Admin = () => {
         .post("https://61a758d0387ab200171d2c12.mockapi.io/products", {
           ...obj,
         })
-        .then(window.location.reload(false))
+        .then(HandelReselt)
         .catch((err) => console.log(err));
-      setName("");
-      setPrice("");
-      setPharmacyName("");
-      setDescription("");
-      setDiscount("");
     }
   };
   return (

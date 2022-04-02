@@ -10,6 +10,7 @@
   -ms-border-radius: 6%;
   -o-border-radius: 6%;
   margin: 10px 0;
+  padding: 10px;
 }
 
 .card-image {

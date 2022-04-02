@@ -11,6 +11,7 @@ const Product = ({ searchName, OfferHandler, setdataCompare }) => {
   const [result, setResult] = useState([]);
   const [compare, setCompare] = useState(true);
   const navigate = useNavigate();
+
   useEffect(() => {
     axios
       .get("https://61a758d0387ab200171d2c12.mockapi.io/products")
