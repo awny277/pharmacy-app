@@ -48,7 +48,7 @@ const Landing = ({ searchName }) => {
             </Col>
             <Col md={6}>
               <div className="LandingBooking">
-                <h1>Need the best treatment?</h1>
+                <h1>Need the best Product?</h1>
                 <div className="LandingCall">
                   <h2 style={{ margin: "0 10px" }}>
                     Pay at the clinic with no extra
