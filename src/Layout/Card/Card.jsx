@@ -68,9 +68,12 @@ const Card = ({
           </div>
         )}
         <h4>pharmacy Name: {pharmacyName}</h4>
-        <button className="btn viewBtn" onClick={ClickHandel}>
-          view
-        </button>
+        {window.localStorage.getItem("userID") && (
+          <button className="btn viewBtn" onClick={ClickHandel}>
+            view
+          </button>
+        )}
+
         {/* <button className="btn m-2 compare-Btn " onClick={HandeladdToCompare}>
           <GoGitCompare
             className={`compare ${compareBtn === true ? "active" : null}`}

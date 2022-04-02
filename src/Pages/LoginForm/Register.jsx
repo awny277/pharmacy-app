@@ -3,9 +3,9 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./LoginForm.css";
-import { DropdownButton, Dropdown } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 
-const Register = ({ OfferHandler, SetUserId }) => {
+const Register = ({ OfferHandler }) => {
   const [logintest, setLogin] = useState(true);
   const [userInfo, setUserInfo] = useState([]);
   const [validateAccount, setValidateAccount] = useState([]);
