@@ -32,7 +32,7 @@ const Register = ({ OfferHandler }) => {
   const HandelForgetPassword = async () => {
     const { value: email } = await Swal.fire({
       // allowOutsideClick: false,
-      title: "Ener Your Account",
+      title: "Enter Your Account",
       input: "email",
       inputLabel: "Your email address",
       inputPlaceholder: "Enter your email address",
@@ -42,7 +42,7 @@ const Register = ({ OfferHandler }) => {
     });
     if (email) {
       const { value: password } = await Swal.fire({
-        title: "Enter your password",
+        title: "Enter your new password",
         input: "password",
         inputLabel: "Password",
         inputPlaceholder: "Enter your New password",
@@ -236,10 +236,10 @@ const Register = ({ OfferHandler }) => {
           icon: "error",
           title: "Oops...",
           text: "Emaill or Password is Wrong",
-          footer: `<button class="register btn" >register</button>`,
+          footer: `<button class="Forget btn" >Forget Password</button>`,
         });
-        document.querySelector(".register").onclick = () => {
-          HandlerReister();
+        document.querySelector(".Forget").onclick = () => {
+          HandelForgetPassword();
         };
       }
     }
