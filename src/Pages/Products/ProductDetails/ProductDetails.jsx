@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
+import { IoAlertCircleOutline } from "react-icons/io5";
 import "./ProductDetails.css";
+
 import Card from "../../../Layout/Card/Card";
 const ProductDetails = ({ setdataCompare }) => {
   const [product, setproduct] = useState([]);
@@ -36,11 +38,11 @@ const ProductDetails = ({ setdataCompare }) => {
           <Col md={5}>
             <div className="product-details-content text-center">
               <h2> {product.name}</h2>
-              <h3>pharmacy name: {product.pharmacyName}</h3>
+              <h3>الصيدلية : {product.pharmacyName}</h3>
               {window.localStorage.getItem("userID").length > 0 ? (
                 <div className="price">
-                  <del> price: {product.price}</del>
-                  <h3>discount: {product.discount}</h3>
+                  <h3>السعر : {product.discount} ر.س</h3>
+                  <del> (ر.س {product.price})</del>
                 </div>
               ) : (
                 <div className="price">
@@ -51,6 +53,12 @@ const ProductDetails = ({ setdataCompare }) => {
             </div>
           </Col>
         </Row>
+        {product.alertDoc === true && (
+          <div className="text-center alertDoc">
+            <p>هذا المنتج يحتاج الي وصفة من الطبيب</p>
+            <IoAlertCircleOutline className="alertIcon" />
+          </div>
+        )}
       </div>
       <div className="SimilarProducts">
         <h2 className="text-center">Similar Products</h2>

@@ -10,6 +10,7 @@ const Admin = () => {
   const [pharmacyName, setPharmacyName] = useState("النهدي");
   const [description, setDescription] = useState("");
   const [discount, setDiscount] = useState("");
+  const [alertDoc, setAlertDoc] = useState(false);
   const [imgUrl, setImageUrl] = useState(
     "https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/panadol/en_eg/Products/CF%20455%20Eng%20eg_new.png?auto=format"
   );
@@ -23,6 +24,7 @@ const Admin = () => {
     setPharmacyName("");
     setDescription("");
     setDiscount("");
+    setAlertDoc(false);
     window.location.reload(false);
   };
 
@@ -94,6 +96,7 @@ const Admin = () => {
         description,
         discount: result,
         imgUrl,
+        alertDoc: false,
       };
       axios
         .post("https://61a758d0387ab200171d2c12.mockapi.io/products", {

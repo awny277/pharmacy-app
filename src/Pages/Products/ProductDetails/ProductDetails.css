@@ -27,6 +27,30 @@
   color: var(  --bs-gray);
 }
 
+.alertDoc {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 270px;
+  margin: 10px auto;
+  border: 2px solid  var(  --bs-gray-500);
+  padding: 10px 15px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  color: var(  --bs-gray-700);
+}
+.alertDoc p {
+  margin: 0;
+  font-weight: 700;
+}
+.alertIcon {
+  font-size: 22px;
+  color: #f27474;
+}
+
 .SimilarProducts {
   margin: 15px 0;
   border-top: 1px solid rgb(204, 204, 204);

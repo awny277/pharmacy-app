@@ -59,15 +59,15 @@ const Card = ({
         <h4>{name}</h4>
         {window.localStorage.getItem("userID") ? (
           <div className="price">
-            <span className="card-discount">discount: {discount}$</span>
-            <del className="card-price">price: {price}$</del>
+            <del className="card-price">(ر.س {price})</del>
+            <span className="card-discount">السعر : {discount} ر.س</span>
           </div>
         ) : (
           <div className="price">
             <span className="card-price">{price}$</span>
           </div>
         )}
-        <h4>pharmacy Name: {pharmacyName}</h4>
+        <h4>pharmacy: {pharmacyName}</h4>
         {window.localStorage.getItem("userID") && (
           <button className="btn viewBtn" onClick={ClickHandel}>
             view
