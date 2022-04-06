@@ -7,6 +7,11 @@
 }
 .product-details .img-container img {
   width: 70%;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 .product-details .product-details-container {
   align-items: center;
@@ -16,11 +21,12 @@
 }
 
 .product-details .product-details-content h3 {
-  margin: 10px 0;
+  margin: 5px 0;
 }
 .product-details .price {
-  padding: 10px;
+  /* padding: 10px; */
   color: var(--bs-gray-dark);
+  margin-bottom: 5px;
 }
 
 .product-details .price del {

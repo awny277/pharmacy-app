@@ -67,10 +67,10 @@ const Card = ({
             <span className="card-price">{price}$</span>
           </div>
         )}
-        <h4>pharmacy: {pharmacyName}</h4>
+        <h4>الصيدلية : {pharmacyName}</h4>
         {window.localStorage.getItem("userID") && (
           <button className="btn viewBtn" onClick={ClickHandel}>
-            view
+            مشاهدة
           </button>
         )}
 

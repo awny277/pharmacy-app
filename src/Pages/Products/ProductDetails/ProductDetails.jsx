@@ -46,7 +46,8 @@ const ProductDetails = ({ setdataCompare }) => {
                 </div>
               ) : (
                 <div className="price">
-                  <h3> price: {product.price}</h3>
+                  {/* <h3> price: {product.price}</h3> */}
+                  <h3>السعر : {product.price} ر.س</h3>
                 </div>
               )}
               <p> {product.description}</p>
