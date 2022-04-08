@@ -41,8 +41,10 @@ const ProductDetails = ({ setdataCompare }) => {
               <h3>الصيدلية : {product.pharmacyName}</h3>
               {window.localStorage.getItem("userID").length > 0 ? (
                 <div className="price">
-                  <h3>السعر : {product.discount} ر.س</h3>
-                  <del> (ر.س {product.price})</del>
+                  <h3>
+                    السعر : {product.discount} ر.س{" "}
+                    <del>( {product.price} )</del>
+                  </h3>
                 </div>
               ) : (
                 <div className="price">
@@ -50,7 +52,7 @@ const ProductDetails = ({ setdataCompare }) => {
                   <h3>السعر : {product.price} ر.س</h3>
                 </div>
               )}
-              <p> {product.description}</p>
+              <p className="description-p"> {product.description}</p>
             </div>
           </Col>
         </Row>

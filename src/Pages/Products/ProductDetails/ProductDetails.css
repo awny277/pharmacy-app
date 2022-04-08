@@ -31,6 +31,12 @@
 
 .product-details .price del {
   color: var(  --bs-gray);
+  direction: rtl
+
+}
+
+.description-p {
+  direction: rtl;
 }
 
 .alertDoc {
