@@ -27,6 +27,10 @@ const Admin = () => {
     setAlertDoc(false);
     window.location.reload(false);
   };
+  const HandelCheck = () => {
+    const alertMessage = !alertDoc;
+    setAlertDoc(alertMessage);
+  };
 
   useEffect(() => {
     axios
@@ -96,7 +100,7 @@ const Admin = () => {
         description,
         discount: result,
         imgUrl,
-        alertDoc: false,
+        alertDoc,
       };
       axios
         .post("https://61a758d0387ab200171d2c12.mockapi.io/products", {
@@ -191,6 +195,16 @@ const Admin = () => {
                   </Form.Text>
                 </FloatingLabel>
               </Col>
+            </Row>
+            <Row>
+              <div className="Prescription">
+                <Form.Check
+                  type={"checkbox"}
+                  id={`default-checkbox`}
+                  label={`Doctor's Prescription`}
+                  onClick={HandelCheck}
+                />
+              </div>
             </Row>
           </Form>
           <Row className="text-center m-3">

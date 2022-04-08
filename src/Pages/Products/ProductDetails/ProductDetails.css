@@ -1,4 +1,7 @@
+
 .product-details {
+  font-family: 'Almarai', sans-serif;
+  /* font-family: 'Cairo', sans-serif; */
 
 }
 .product-details .img-container {
@@ -31,7 +34,7 @@
 
 .product-details .price del {
   color: var(  --bs-gray);
-  direction: rtl
+  direction: rtl;
 
 }
 
@@ -43,7 +46,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 270px;
+  width: 320px;
   margin: 10px auto;
   border: 2px solid  var(  --bs-gray-500);
   padding: 10px 15px;

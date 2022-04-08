@@ -55,3 +55,17 @@
   margin-left: 2px;
   color: var(--small-color) !important;
 }
+.Prescription {
+  width: 320px;
+  background-color: white;
+  padding: 15px 20px;
+  text-align: center;
+  margin: 10px auto;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  box-shadow: var(--box-shadow);
+
+}

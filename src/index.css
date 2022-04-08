@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
 /* :root {
   --dafult-padding : 15px;
   --color-white : #fff;
@@ -63,6 +65,7 @@
 
 body {
   margin: 0;
+  font-family: 'Almarai', sans-serif;
   font-family: 'Josefin Sans', sans-serif;
   overflow-x: hidden;
   background-color: #f5f5f9 !important;

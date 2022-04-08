@@ -59,7 +59,7 @@ const Card = ({
         <h4>{name}</h4>
         {window.localStorage.getItem("userID") ? (
           <div className="price">
-            <del className="card-price">(ر.س {price})</del>
+            <del className="card-price">({price})</del>
             <span className="card-discount">السعر : {discount} ر.س</span>
           </div>
         ) : (
@@ -73,7 +73,6 @@ const Card = ({
             مشاهدة
           </button>
         )}
-
         {/* <button className="btn m-2 compare-Btn " onClick={HandeladdToCompare}>
           <GoGitCompare
             className={`compare ${compareBtn === true ? "active" : null}`}
