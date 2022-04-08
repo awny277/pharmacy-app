@@ -21,10 +21,11 @@
 }
 .product-details .product-details-content h2 {
   color: var(--main-Parg);
+  margin: 10px 0;
 }
 
 .product-details .product-details-content h3 {
-  margin: 5px 0;
+  margin: 10px 0;
 }
 .product-details .price {
   /* padding: 10px; */
