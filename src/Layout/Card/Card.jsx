@@ -64,7 +64,7 @@ const Card = ({
           </div>
         ) : (
           <div className="price">
-            <span className="card-price">{price}$</span>
+            <span className="card-price">السعر : {price} ر.س</span>
           </div>
         )}
         <h4>الصيدلية : {pharmacyName}</h4>
