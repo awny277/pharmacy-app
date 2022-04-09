@@ -24,11 +24,19 @@ const NavBar = () => {
         .then((res) => {
           setUserInfo(res.data);
         })
-        .catch((err) => console.log(err));
+        .catch(() => {
+          window.localStorage.setItem("userName", "");
+          window.localStorage.setItem("password", "");
+          window.localStorage.setItem("email", "");
+          window.localStorage.setItem("userID", "");
+          window.localStorage.setItem("isOline", "false");
+          window.location.reload(false);
+        });
     } else {
       return null;
     }
   }, [ID]);
+
   return (
     <Navbar bg="light" expand="lg" sticky="top">
       <Container fluid>
@@ -96,6 +104,7 @@ const NavBar = () => {
                 compare
               </NavLink> */}
             </Nav>
+            {/* {userInfo.length === 0 && <Register />} */}
             {userInfo.userName && <Register />}
           </Offcanvas.Body>
         </Navbar.Offcanvas>
