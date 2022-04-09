@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./Layout/NavBar/NavBar";
 import Home from "./Pages/Home/Home";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Admin from "./Pages/Admin/Admin";
 import Footer from "./Layout/Footer/Footer";
 import Product from "./Pages/Products/Products";
@@ -34,9 +34,19 @@ function App() {
   const canselOffer = () => {
     setUserLogin(false);
   };
+  function ScrollToTop() {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return null;
+  }
   return (
     <React.Fragment>
       <NavBar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home searchName={searchNameHandeler} />} />
         <Route path="/admin" element={<Admin />} />
