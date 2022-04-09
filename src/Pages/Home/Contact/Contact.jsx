@@ -29,8 +29,8 @@ const Contact = () => {
     <div className="Touch" id="featuer">
       <div className="container">
         <div className="Team-Header text-center">
-          <span>Get In Touch</span>
-          <h1>Get In Touch For Any Query</h1>
+          <span>ابقى على تواصل</span>
+          <h1>تواصل معنا لأي استفسار</h1>
         </div>
         <div className="Touch-contant">
           <div className="touch-information">
@@ -39,7 +39,7 @@ const Contact = () => {
                 <GoLocation />
               </div>
               <div className="touch-info">
-                <h3>Our Head Office</h3>
+                <h3>مكتبنا الرئيسي</h3>
                 <span>123 Street, New York, USA</span>
               </div>
             </div>
@@ -48,7 +48,7 @@ const Contact = () => {
                 <BsTelephoneInbound />
               </div>
               <div className="touch-info">
-                <h3>Call for Help</h3>
+                <h3>أتصل بنا للمساعدة</h3>
                 <span>+012 345 6789</span>
               </div>
             </div>
@@ -57,23 +57,23 @@ const Contact = () => {
                 <HiOutlineMail />
               </div>
               <div className="touch-info">
-                <h3>Email for Information</h3>
+                <h3>البريد الإلكتروني الخاص بنا</h3>
                 <span>info@example.com</span>
               </div>
             </div>
           </div>
           <form className="touch-form " onSubmit={sendEmail}>
-            <input type="text" placeholder="Your Name" name="name" />
-            <input type="text" placeholder="Your Email" name="email" />
-            <input type="text" placeholder="Subject" name="subject" />
+            <input type="text" placeholder="الأسم" name="name" />
+            <input type="text" placeholder="البريد الألكتروني" name="email" />
+            <input type="text" placeholder="الموضوع" name="subject" />
             <textarea
               name="message"
               id=""
               cols="30"
               rows="4"
-              placeholder="Message"
+              placeholder="محتوي الرسالة"
             ></textarea>
-            <input type="submit" className="btnMail" value={"send massage"} />
+            <input type="submit" className="btnMail" value={"أرسل الرسالة"} />
           </form>
         </div>
       </div>

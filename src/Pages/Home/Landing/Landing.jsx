@@ -18,10 +18,10 @@ const Landing = ({ searchName }) => {
           <Row>
             <Col md={6}>
               <div className="SearchCont">
-                <h2>looking for a cure ?</h2>
+                <h2>هل تبحث عن علاج؟</h2>
                 <p>
-                  Discover the best affordable price compared to the most famous
-                  pharmacies in the city
+                  اكتشف أفضل الأسعار المعقولة مقارنة بأكثر الصيدليات شهرة في
+                  المدينة
                 </p>
                 <div className=" SearchContInput">
                   <div className="SearchInput">
@@ -30,7 +30,7 @@ const Landing = ({ searchName }) => {
                       type="search"
                       name=""
                       id=""
-                      placeholder="Search For a cure"
+                      placeholder="أبحث عن المنتجات"
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
                     />
@@ -48,11 +48,16 @@ const Landing = ({ searchName }) => {
             </Col>
             <Col md={6}>
               <div className="LandingBooking">
-                <h1>Need the best Product?</h1>
+                <h1>هل تحتاج إلى أفضل منتج؟</h1>
                 <div className="LandingCall">
                   <h2 style={{ margin: "0 10px" }}>
-                    Pay at the clinic with no extra
+                    ادفع في الصيدلية بدون اضافات
                   </h2>
+                  {window.localStorage.getItem("isOline") === "false" && (
+                    <div>
+                      احصل علي خصم 10% عند تسجيل الدخول علي جميع المنتجات
+                    </div>
+                  )}
                   <div className="landingLogin">
                     {window.localStorage.getItem("isOline") === "true" ? (
                       <div></div>

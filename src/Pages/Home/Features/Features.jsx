@@ -8,8 +8,8 @@ const Feature = () => {
   return (
     <React.Fragment>
       <div className="Feature">
-        <span className="text-center">the best choice</span>
-        <h2 className="text-center">The most famous clinics</h2>
+        <span className="text-center">الأختيار الأفضل</span>
+        <h2 className="text-center">أفضل الصيدليات</h2>
         <Container fluid>
           <Row className=" justify-content-around text-center">
             <Col sm={5} md={4}>

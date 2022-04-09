@@ -252,17 +252,17 @@ const Register = ({ OfferHandler }) => {
           <Dropdown.Divider />
           <Dropdown.Item href="#/action-2">
             <button className="btn btn-danger Logout" onClick={logoutHandeller}>
-              Log out
+              تسجيل الخروج
             </button>
           </Dropdown.Item>
         </div>
       ) : (
         <div className="registerr">
           <button className="btn signup" onClick={HandlerReister}>
-            signup
+            انشاء حساب
           </button>
           <button className="btn Login" onClick={Loginn}>
-            Login
+            تسجيل الدخول
           </button>
         </div>
       )}

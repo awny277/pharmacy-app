@@ -36,24 +36,9 @@ const NavBar = () => {
           <img src={logo} alt="logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="offcanvasNavbar" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <NavLink to={"/"} data-rr-ui-event-key="#home" className="nav-link">
-              Home
-            </NavLink>
-            <NavLink to={"/Product"} className="nav-link">
-              Product
-            </NavLink>
-          </Nav>
-        </Navbar.Collapse>
+
         <Navbar.Collapse id="basic-navbar-nav nav-order3">
           <Nav className="me-auto">
-            <NavLink to={"/admin"} className="nav-link">
-              DashBoard
-            </NavLink>
-            {/* <NavLink to={"/compare"} className="nav-link">
-              compare
-            </NavLink> */}
             {window.localStorage.getItem("isOline") === "true" ? (
               <DropdownButton
                 id="dropdown-basic-button"
@@ -67,6 +52,19 @@ const NavBar = () => {
             ) : (
               <Register />
             )}
+            <NavLink to={"/admin"} className="nav-link">
+              لوحة التحكم
+            </NavLink>
+          </Nav>
+        </Navbar.Collapse>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <NavLink to={"/Product"} className="nav-link">
+              المنتجات{" "}
+            </NavLink>
+            <NavLink to={"/"} data-rr-ui-event-key="#home" className="nav-link">
+              الرئيسية
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
         <Navbar.Offcanvas
@@ -86,13 +84,13 @@ const NavBar = () => {
                 data-rr-ui-event-key="#home"
                 className="nav-link"
               >
-                Home
+                الرئيسية
               </NavLink>
               <NavLink to={"/Product"} className="nav-link">
-                Product
+                المنتجات
               </NavLink>
               <NavLink to={"/admin"} className="nav-link">
-                Admin
+                لوحة التحكم
               </NavLink>
               {/* <NavLink to={"/compare"} className="nav-link">
                 compare

@@ -30,22 +30,22 @@ const Product = ({ searchName, OfferHandler, setdataCompare }) => {
   return (
     <Container>
       <div className="products-search-page">
-        <h1 className="text-center">Search for a Product</h1>
+        <h1 className="text-center">أبحث عن المنتجات</h1>
         <Row className="searchInput">
           <Col xs={12} md={7}>
             <FloatingLabel
               controlId="floatingInput"
-              label="Search for a Product "
+              label="أبحث عن المنتجات "
               className="text-center"
             >
               <Form.Control
                 type="search"
-                placeholder="Enter cure name"
+                placeholder="أدخل اسم المنتج"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
               <Form.Text id="passwordHelpBlock" muted>
-                Search for a Product with perfect price
+                ابحث عن المنتجات بسعر مثالي
               </Form.Text>
             </FloatingLabel>
           </Col>
