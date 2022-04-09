@@ -36,7 +36,6 @@ const NavBar = () => {
       return null;
     }
   }, [ID]);
-
   return (
     <Navbar bg="light" expand="lg" sticky="top">
       <Container fluid>
@@ -104,7 +103,6 @@ const NavBar = () => {
                 compare
               </NavLink> */}
             </Nav>
-            {/* {userInfo.length === 0 && <Register />} */}
             {userInfo.userName && <Register />}
           </Offcanvas.Body>
         </Navbar.Offcanvas>
