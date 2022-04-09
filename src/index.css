@@ -54,6 +54,14 @@
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
   --box-shadow : 0 2px 6px 0 rgb(67 89 113 / 12%);
+  --fontsize-normal: 16px;
+  --fontsize-medium: 20px;
+  --fontsize-larg: 32px;
+  --fontsize-xLarg: 45px;
+  --fontWeight-light : 300;
+  --fontWeight-normal : 400;
+  --fontWeight-medium : 500;
+  --fontWeight-bold : 700;
 }
 
 * {

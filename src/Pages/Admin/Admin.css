@@ -73,3 +73,21 @@
   box-shadow: var(--box-shadow);
 
 }
+
+.btn-saveDate {
+  background-color: var(--bs-indigo);
+  color: var(--bs-white);
+  padding: 7px 20px;
+  font-weight:var(--fontWeight-medium);
+  font-size: var(--fontsize-medium);
+}
+
+.btn-saveDate:focus {
+  box-shadow: none;
+}
+
+.btn-saveDate:hover {
+  color:  var(--bs-indigo);
+  background-color:  var(--bs-white);
+  border: 1px solid var(--bs-indigo);
+}

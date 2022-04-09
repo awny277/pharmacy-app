@@ -211,7 +211,7 @@ const Admin = () => {
           </Form>
           <Row className="text-center m-3">
             <Col>
-              <button className="btn btn-primary" onClick={submitHandel}>
+              <button className="btn btn-saveDate" onClick={submitHandel}>
                 {" "}
                 حفظ
               </button>
