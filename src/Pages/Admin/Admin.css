@@ -2,6 +2,10 @@
   padding: 10px;
 }
 
+.add-project .form-text {
+  direction: rtl;
+}
+
 .add-project h1 {
   margin: 10px;
   color: var(--main-Parg);

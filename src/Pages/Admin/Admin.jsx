@@ -113,33 +113,36 @@ const Admin = () => {
   return (
     <Container>
       <div className="add-project">
-        <h1 className="text-center">Add New Cure</h1>
+        <h1 className="text-center">أضف منتج جديد</h1>
         <div className="add-project-content">
           <Form className="text-center">
             <Row>
               <Col xs={12} className="cloumn" md={5}>
-                <FloatingLabel controlId="floatingInput" label="Cure Title ">
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="أدخل أسم المنتج "
+                >
                   <Form.Control
                     type="text"
-                    placeholder="Enter Cure Title"
+                    placeholder="أدخل أسم المنتج"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
                   <Form.Text id="passwordHelpBlock" muted>
-                    Include a short title that accurately describes your Cure.
+                    قم بتضمين عنوان قصير يصف منتجك بدقة
                   </Form.Text>
                 </FloatingLabel>
               </Col>
               <Col className="cloumn" xs={12} md={6}>
-                <FloatingLabel controlId="floatingInput" label="Cure price">
+                <FloatingLabel controlId="floatingInput" label="سعر المنتج">
                   <Form.Control
                     type="number"
-                    placeholder="Enter Cure price"
+                    placeholder="أدخل سعر المنتج"
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
                   />
                   <Form.Text id="passwordHelpBlock" muted>
-                    Please enter the appropriate price for the cure
+                    الرجاء إدخال السعر المناسب للمنتج
                   </Form.Text>
                 </FloatingLabel>
               </Col>
@@ -148,10 +151,10 @@ const Admin = () => {
               <Col className="cloumn" xs={12} md={6}>
                 <FloatingLabel
                   controlId="floatingSelect"
-                  label="Select pharmacy Name "
+                  label="قم بأختيار الصيدلية "
                 >
                   <Form.Select
-                    aria-label="Select pharmacy Name"
+                    aria-label="قم بأختيار الصيدلية"
                     onChange={(event) => setPharmacyName(event.target.value)}
                     value={pharmacyName}
                   >
@@ -161,19 +164,18 @@ const Admin = () => {
                     {/* Carpets and kilims */}
                   </Form.Select>
                   <Form.Text id="passwordHelpBlock" muted>
-                    Please enter the name of the pharmacy that offers this
-                    medicine
+                    الرجاء إدخال اسم الصيدلية التي تقدم هذا المنتج
                   </Form.Text>
                 </FloatingLabel>
               </Col>
               <Col className="cloumn" xs={12} md={5}>
                 <FloatingLabel
                   controlId="floatingTextarea2"
-                  label="Cure Details"
+                  label="تفاصيل المنتج"
                 >
                   <Form.Control
                     as="textarea"
-                    placeholder="Leave Cure Details here"
+                    placeholder="اترك تفاصيل المنتج هنا"
                     style={{ height: "80px" }}
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
@@ -183,15 +185,15 @@ const Admin = () => {
             </Row>
             <Row>
               <Col xs={12} className="cloumn" md={8}>
-                <FloatingLabel controlId="floatingInput" label="Cure Title ">
+                <FloatingLabel controlId="floatingInput" label="صورة المنتج">
                   <Form.Control
                     type="text"
-                    placeholder="Enter Image Url"
+                    placeholder="أدخل رابط صورة المنتج"
                     value={imgUrl}
                     onChange={(e) => setImageUrl(e.target.value)}
                   />
                   <Form.Text id="passwordHelpBlock" muted>
-                    Enter Image Url.
+                    قم بأدخال رابط صورة المنتج
                   </Form.Text>
                 </FloatingLabel>
               </Col>
@@ -201,7 +203,7 @@ const Admin = () => {
                 <Form.Check
                   type={"checkbox"}
                   id={`default-checkbox`}
-                  label={`Doctor's Prescription`}
+                  label={`هذا المنتج يحتاج الي وصفة من الطبيب`}
                   onClick={HandelCheck}
                 />
               </div>
@@ -211,7 +213,7 @@ const Admin = () => {
             <Col>
               <button className="btn btn-primary" onClick={submitHandel}>
                 {" "}
-                save
+                حفظ
               </button>
             </Col>
           </Row>
