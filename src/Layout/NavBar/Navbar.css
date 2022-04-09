@@ -70,3 +70,8 @@
 .UserIcon {
   color: black;
 }
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  right: 0 !important;
+  left: unset;
+}

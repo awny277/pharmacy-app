@@ -3,6 +3,7 @@ import axios from "axios";
 import Card from "./../../Layout/Card/Card";
 import { Col, Container, Row, FloatingLabel, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import imgNotfound from "../../images/notfound2.svg";
 import "./Products.css";
 
 const Product = ({ searchName, OfferHandler, setdataCompare }) => {
@@ -50,29 +51,40 @@ const Product = ({ searchName, OfferHandler, setdataCompare }) => {
             </FloatingLabel>
           </Col>
         </Row>
-        <div className="product-search-container">
-          <Row>
-            {result.map((ele, idx) => {
-              return (
-                <Col sm={6} md={4} key={idx}>
-                  <Card
-                    OfferHandler={OfferHandler}
-                    imgUrl={ele.imgUrl}
-                    name={ele.name}
-                    price={ele.price}
-                    pharmacyName={ele.pharmacyName}
-                    discount={ele.discount}
-                    ClickHandel={() => navigate(`/Product/${ele.id}`)}
-                    result={result}
-                    setdataCompare={setdataCompare}
-                    compare={ele.compare}
-                    ElementId={ele.id}
-                  />
-                </Col>
-              );
-            })}
-          </Row>
-        </div>
+        {result.length > 0 ? (
+          <div className="product-search-container">
+            <Row>
+              {result.map((ele, idx) => {
+                return (
+                  <Col sm={6} md={4} key={idx}>
+                    <Card
+                      OfferHandler={OfferHandler}
+                      imgUrl={ele.imgUrl}
+                      name={ele.name}
+                      price={ele.price}
+                      pharmacyName={ele.pharmacyName}
+                      discount={ele.discount}
+                      ClickHandel={() => navigate(`/Product/${ele.id}`)}
+                      result={result}
+                      setdataCompare={setdataCompare}
+                      compare={ele.compare}
+                      ElementId={ele.id}
+                    />
+                  </Col>
+                );
+              })}
+            </Row>
+          </div>
+        ) : (
+          <div className="text-center notFound">
+            <h2 className="notfoundText ">هذا المنتج غير موجود</h2>
+            <img
+              className="imgNotfound"
+              src={imgNotfound}
+              alt="there is no data to compare"
+            />
+          </div>
+        )}
       </div>
     </Container>
   );
