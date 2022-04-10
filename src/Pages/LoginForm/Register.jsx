@@ -249,7 +249,6 @@ const Register = ({ OfferHandler }) => {
     <React.Fragment>
       {window.localStorage.getItem("isOline") === "true" ? (
         <div>
-          <Dropdown.Divider />
           <Dropdown.Item href="#/action-2">
             <button className="btn btn-danger Logout" onClick={logoutHandeller}>
               تسجيل الخروج

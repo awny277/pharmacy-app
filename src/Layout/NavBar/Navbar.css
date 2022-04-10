@@ -47,15 +47,27 @@
 
 .offcanvas {
   width: 75%;
+  
 }
 .offcanvas-header {
   border-bottom: 1px solid #cdcdcd;
+  background-color: #f5f5f9;
+
 }
 .offcanvas-header img {
   width: 20%;
 }
+.offcanvas-body {
+  text-align: center;
+  background-color: #f5f5f9;
+
+}
 .offcanvas-body .nav-link {
   color: black;
+  border-bottom: 1px solid #cdcdcd;
+}
+.offcanvas-body .dropdown-item {
+  margin: 5px 0;
 }
 
 .btn-check:active+.btn-primary, .btn-check:checked+.btn-primary, .btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle {

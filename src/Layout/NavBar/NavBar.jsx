@@ -54,6 +54,7 @@ const NavBar = () => {
                 <Dropdown.Item href="#/action-1">
                   {userInfo.userName}
                 </Dropdown.Item>
+                <Dropdown.Divider />
                 <Register />
               </DropdownButton>
             ) : (
@@ -93,9 +94,11 @@ const NavBar = () => {
               >
                 الرئيسية
               </NavLink>
+              {/* <Dropdown.Divider /> */}
               <NavLink to={"/Product"} className="nav-link">
                 المنتجات
               </NavLink>
+              {/* <Dropdown.Divider /> */}
               <NavLink to={"/admin"} className="nav-link">
                 لوحة التحكم
               </NavLink>
