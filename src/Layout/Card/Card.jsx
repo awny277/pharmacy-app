@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Card.css";
-import { GoGitCompare } from "react-icons/go";
-import axios from "axios";
+// import { GoGitCompare } from "react-icons/go";
+// import axios from "axios";
 
 const Card = ({
   name,
@@ -10,46 +10,46 @@ const Card = ({
   ClickHandel,
   discount,
   pharmacyName,
-  compare,
+  // compare,
   // setdataCompare,
   // result,
-  ElementId,
+  // ElementId,
 }) => {
-  const [compareBtn, setCompareBtn] = useState(null);
+  // const [compareBtn, setCompareBtn] = useState(null);
 
-  const HandeladdToCompare = () => {
-    if (compare === false) {
-      const obj = {
-        name: name,
-        price: price,
-        imgUrl: imgUrl,
-        discount: discount,
-        pharmacyName: pharmacyName,
-        compare: true,
-      };
-      axios
-        .put(
-          "https://61a758d0387ab200171d2c12.mockapi.io/products/" + ElementId,
-          { ...obj }
-        )
-        .then(setCompareBtn(true));
-    } else {
-      const obj = {
-        name: name,
-        price: price,
-        imgUrl: imgUrl,
-        discount: discount,
-        pharmacyName: pharmacyName,
-        compare: false,
-      };
-      axios
-        .put(
-          "https://61a758d0387ab200171d2c12.mockapi.io/products/" + ElementId,
-          { ...obj }
-        )
-        .then(setCompareBtn(false));
-    }
-  };
+  // const HandeladdToCompare = () => {
+  //   if (compare === false) {
+  //     const obj = {
+  //       name: name,
+  //       price: price,
+  //       imgUrl: imgUrl,
+  //       discount: discount,
+  //       pharmacyName: pharmacyName,
+  //       compare: true,
+  //     };
+  //     axios
+  //       .put(
+  //         "https://61a758d0387ab200171d2c12.mockapi.io/products/" + ElementId,
+  //         { ...obj }
+  //       )
+  //       .then(setCompareBtn(true));
+  //   } else {
+  //     const obj = {
+  //       name: name,
+  //       price: price,
+  //       imgUrl: imgUrl,
+  //       discount: discount,
+  //       pharmacyName: pharmacyName,
+  //       compare: false,
+  //     };
+  //     axios
+  //       .put(
+  //         "https://61a758d0387ab200171d2c12.mockapi.io/products/" + ElementId,
+  //         { ...obj }
+  //       )
+  //       .then(setCompareBtn(false));
+  //   }
+  // };
   return (
     <div className={`cards `}>
       <div className="card-image">

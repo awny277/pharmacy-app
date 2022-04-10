@@ -10,7 +10,7 @@ const Product = ({ searchName, OfferHandler, setdataCompare }) => {
   const [search, setSearch] = useState(searchName);
   const [products, setProducts] = useState([]);
   const [result, setResult] = useState([]);
-  const [compare, setCompare] = useState(true);
+  // const [compare, setCompare] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {

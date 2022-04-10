@@ -6,7 +6,7 @@ import "./LoginForm.css";
 import { Dropdown } from "react-bootstrap";
 
 const Register = ({ OfferHandler }) => {
-  const [logintest, setLogin] = useState(true);
+  // const [logintest, setLogin] = useState(true);
   const [userInfo, setUserInfo] = useState([]);
   const [validateAccount, setValidateAccount] = useState([]);
   const [validationEmail, setValidationEmail] = useState([]);
@@ -19,7 +19,7 @@ const Register = ({ OfferHandler }) => {
     window.localStorage.setItem("userID", "");
     window.localStorage.setItem("isOline", "false");
     window.location.reload(false);
-    setLogin(true);
+    // setLogin(true);
   };
   useEffect(() => {
     axios
@@ -213,7 +213,7 @@ const Register = ({ OfferHandler }) => {
               .then((res) => {
                 window.localStorage.setItem("userID", res.data.id);
                 window.localStorage.setItem("isOline", "true");
-                setLogin(false);
+                // setLogin(false);
                 window.location.reload(false);
               })
               .catch((err) => console.log(err));
