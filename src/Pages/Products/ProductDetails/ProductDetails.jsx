@@ -64,7 +64,7 @@ const ProductDetails = ({ setdataCompare }) => {
         )}
       </div>
       <div className="SimilarProducts">
-        <h2 className="text-center">Similar Products</h2>
+        <h2 className="text-center">منتجات أخرى</h2>
         <Row>
           {SimilarProducts.filter(
             (ele) => ele.pharmacyName === product.pharmacyName
