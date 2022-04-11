@@ -25,7 +25,7 @@ const Product = ({ searchName, OfferHandler, setdataCompare }) => {
     const data = products
       .filter(
         (ele) =>
-          ele.name.includes(search.toLowerCase()) ||
+          ele.name.toLowerCase().includes(search.toLowerCase()) ||
           ele.enName.toLowerCase().includes(search.toLowerCase())
       )
       .sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
