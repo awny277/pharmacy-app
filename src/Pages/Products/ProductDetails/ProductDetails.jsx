@@ -70,7 +70,7 @@ const ProductDetails = ({ setdataCompare }) => {
             (ele) => ele.pharmacyName === product.pharmacyName
           ).map((ele, idx) => {
             return (
-              <Col sm={5} md={4} key={idx}>
+              <Col sm={5} md={3} key={idx}>
                 <Card
                   imgUrl={ele.imgUrl}
                   name={ele.name}

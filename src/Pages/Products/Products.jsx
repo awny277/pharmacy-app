@@ -23,7 +23,11 @@ const Product = ({ searchName, OfferHandler, setdataCompare }) => {
 
   useEffect(() => {
     const data = products
-      .filter((ele) => ele.name.toLowerCase().includes(search.toLowerCase()))
+      .filter(
+        (ele) =>
+          ele.name.includes(search.toLowerCase()) ||
+          ele.enName.toLowerCase().includes(search.toLowerCase())
+      )
       .sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
     setResult(data);
   }, [products, search, OfferHandler]);
@@ -56,7 +60,7 @@ const Product = ({ searchName, OfferHandler, setdataCompare }) => {
             <Row>
               {result.map((ele, idx) => {
                 return (
-                  <Col sm={6} md={4} key={idx}>
+                  <Col sm={6} md={3} key={idx}>
                     <Card
                       OfferHandler={OfferHandler}
                       imgUrl={ele.imgUrl}

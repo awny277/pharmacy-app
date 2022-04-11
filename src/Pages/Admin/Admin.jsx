@@ -6,13 +6,14 @@ import "./Admin.css";
 
 const Admin = () => {
   const [name, setName] = useState("");
+  const [enName, setEnName] = useState("");
   const [price, setPrice] = useState("");
   const [pharmacyName, setPharmacyName] = useState("النهدي");
   const [description, setDescription] = useState("");
   const [discount, setDiscount] = useState("");
   const [alertDoc, setAlertDoc] = useState(false);
   const [imgUrl, setImageUrl] = useState(
-    "https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/panadol/en_eg/Products/CF%20455%20Eng%20eg_new.png?auto=format"
+    "https://i.pinimg.com/564x/ab/5d/a8/ab5da80fd13df4048ceb235bc9723720.jpg"
   );
 
   const [data, setData] = useState([]);
@@ -24,6 +25,7 @@ const Admin = () => {
     setPharmacyName("");
     setDescription("");
     setDiscount("");
+    setEnName("");
     setAlertDoc(false);
     window.location.reload(false);
   };
@@ -38,8 +40,6 @@ const Admin = () => {
       .then((res) => setData(res.data));
   }, [resultValidation]);
 
-  // console.log(resultValidation);
-
   const submitHandel = (e) => {
     const product = data.find((ele) => {
       return (
@@ -48,10 +48,9 @@ const Admin = () => {
       );
     });
     setResult(product);
-
-    // console.log(resultValidation);
     if (
       name.length === 0 ||
+      enName.length === 0 ||
       price.length === 0 ||
       pharmacyName.length === 0 ||
       description.length === 0 ||
@@ -71,7 +70,7 @@ const Admin = () => {
       });
       Toast.fire({
         icon: "error",
-        title: "All data must be entered",
+        title: "يجب ملئ جيمع الحقول",
       });
     } else if (product) {
       e.preventDefault();
@@ -95,6 +94,7 @@ const Admin = () => {
       setDiscount(result);
       const obj = {
         name,
+        enName,
         price,
         pharmacyName,
         description,
@@ -114,13 +114,14 @@ const Admin = () => {
     <Container>
       <div className="add-project">
         <h1 className="text-center">أضف منتج جديد</h1>
+
         <div className="add-project-content">
           <Form className="text-center">
             <Row>
-              <Col xs={12} className="cloumn" md={5}>
+              <Col xs={12} md={5} className="cloumn">
                 <FloatingLabel
                   controlId="floatingInput"
-                  label="أدخل أسم المنتج "
+                  label="أدخل أسم المنتج باللغة العربية "
                 >
                   <Form.Control
                     type="text"
@@ -129,11 +130,27 @@ const Admin = () => {
                     onChange={(e) => setName(e.target.value)}
                   />
                   <Form.Text id="passwordHelpBlock" muted>
-                    قم بتضمين عنوان قصير يصف منتجك بدقة
+                    قم بتضمين عنوان قصير باللغة العربية يصف منتجك بدقة
                   </Form.Text>
                 </FloatingLabel>
               </Col>
-              <Col className="cloumn" xs={12} md={6}>
+              <Col xs={12} md={5} className="cloumn">
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label=" أدخل أسم المنتج باللغة الأنجليزية"
+                >
+                  <Form.Control
+                    type="text"
+                    placeholder="أدخل أسم المنتج باللغة الأنجليزية"
+                    value={enName}
+                    onChange={(e) => setEnName(e.target.value)}
+                  />
+                  <Form.Text id="passwordHelpBlock" muted>
+                    قم بتضمين عنوان قصير باللغة الأنجليزية يصف منتجك بدقة
+                  </Form.Text>
+                </FloatingLabel>
+              </Col>
+              <Col className="cloumn" xs={12} md={5}>
                 <FloatingLabel controlId="floatingInput" label="سعر المنتج">
                   <Form.Control
                     type="number"
@@ -146,9 +163,7 @@ const Admin = () => {
                   </Form.Text>
                 </FloatingLabel>
               </Col>
-            </Row>
-            <Row>
-              <Col className="cloumn" xs={12} md={6}>
+              <Col className="cloumn" xs={12} md={5}>
                 <FloatingLabel
                   controlId="floatingSelect"
                   label="قم بأختيار الصيدلية "
@@ -161,7 +176,6 @@ const Admin = () => {
                     <option value="النهدي"> النهدي </option>
                     <option value="المجتمع">المجتمع</option>
                     <option value="المتحدة">المتحدة</option>
-                    {/* Carpets and kilims */}
                   </Form.Select>
                   <Form.Text id="passwordHelpBlock" muted>
                     الرجاء إدخال اسم الصيدلية التي تقدم هذا المنتج
@@ -182,13 +196,14 @@ const Admin = () => {
                   />
                 </FloatingLabel>
               </Col>
-            </Row>
-            <Row>
-              <Col xs={12} className="cloumn" md={8}>
-                <FloatingLabel controlId="floatingInput" label="صورة المنتج">
+              <Col xs={12} md={5} className="cloumn">
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label=" رابط صورة المنتج"
+                >
                   <Form.Control
                     type="text"
-                    placeholder="أدخل رابط صورة المنتج"
+                    placeholder="برجاء ادخال رابط صورة المنتج"
                     value={imgUrl}
                     onChange={(e) => setImageUrl(e.target.value)}
                   />
@@ -197,16 +212,16 @@ const Admin = () => {
                   </Form.Text>
                 </FloatingLabel>
               </Col>
-            </Row>
-            <Row>
-              <div className="Prescription">
-                <Form.Check
-                  type={"checkbox"}
-                  id={`default-checkbox`}
-                  label={`هذا المنتج يحتاج الي وصفة من الطبيب`}
-                  onClick={HandelCheck}
-                />
-              </div>
+              <Col xs={12} md={4}>
+                <div className="Prescription">
+                  <Form.Check
+                    type={"checkbox"}
+                    id={`default-checkbox`}
+                    label={`هذا المنتج يحتاج الي وصفة من الطبيب`}
+                    onClick={HandelCheck}
+                  />
+                </div>
+              </Col>
             </Row>
           </Form>
           <Row className="text-center m-3">

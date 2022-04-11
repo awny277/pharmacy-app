@@ -1,5 +1,13 @@
 .add-project {
-  padding: 10px;
+  background-color: white;
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 20px;
+  margin: 15px 0;
 }
 
 .add-project .form-text {
@@ -19,15 +27,9 @@
 }
 
 .add-project-content .cloumn {
-  box-shadow: var(--box-shadow);
-  background-color: white;
-  margin:10px 0;
+  margin:0;
   padding: 20px;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+
 }
 
 .save-button {
@@ -59,7 +61,7 @@
   margin-left: 2px;
   color: var(--small-color) !important;
 }
-.Prescription {
+/* .Prescription {
   width: 320px;
   background-color: white;
   padding: 15px 20px;
@@ -71,7 +73,19 @@
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   box-shadow: var(--box-shadow);
+} */
 
+.Prescription {
+  /* width: 320px; */
+  padding: 15px 20px;
+  text-align: center;
+  margin: 10px auto;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 1px solid gray;
 }
 
 .btn-saveDate {

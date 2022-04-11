@@ -6,10 +6,8 @@ import "./LoginForm.css";
 import { Dropdown } from "react-bootstrap";
 
 const Register = ({ OfferHandler }) => {
-  // const [logintest, setLogin] = useState(true);
   const [userInfo, setUserInfo] = useState([]);
   const [validateAccount, setValidateAccount] = useState([]);
-  const [validationEmail, setValidationEmail] = useState([]);
   const navigate = useNavigate();
 
   const logoutHandeller = () => {
@@ -19,7 +17,6 @@ const Register = ({ OfferHandler }) => {
     window.localStorage.setItem("userID", "");
     window.localStorage.setItem("isOline", "false");
     window.location.reload(false);
-    // setLogin(true);
   };
   useEffect(() => {
     axios
@@ -27,7 +24,7 @@ const Register = ({ OfferHandler }) => {
       .then((res) => {
         setUserInfo(res.data);
       });
-  }, [validationEmail, validateAccount]);
+  }, [validateAccount]);
 
   const HandelForgetPassword = async () => {
     const { value: email } = await Swal.fire({
@@ -85,74 +82,49 @@ const Register = ({ OfferHandler }) => {
     });
 
     if (userName) {
-      const { value: userId } = await Swal.fire({
-        title: "Enter the card number",
-        input: "number",
-        inputLabel: "Your Card Number",
-        inputPlaceholder: "Enter the card number",
-      });
-      const emailValidate = userInfo.find((ele) => {
-        return ele.userId === userId;
+      const { value: email } = await Swal.fire({
+        title: "Register",
+        input: "email",
+        inputLabel: "Your email address",
+        inputPlaceholder: "Enter your email address",
       });
 
-      if (userId) {
-        if (!emailValidate) {
-          const { value: email } = await Swal.fire({
-            title: "Register",
-            input: "email",
-            inputLabel: "Your email address",
-            inputPlaceholder: "Enter your email address",
-          });
+      const accoundValidation = userInfo.find((ele) => {
+        return ele.email.toLowerCase() === email.toLowerCase();
+      });
 
-          const accoundValidation = userInfo.find((ele) => {
-            return ele.email.toLowerCase() === email.toLowerCase();
+      if (email) {
+        if (!accoundValidation) {
+          const { value: password } = await Swal.fire({
+            title: "Enter your password",
+            input: "password",
+            inputLabel: "Password",
+            inputPlaceholder: "Enter your password",
+            inputAttributes: {
+              maxlength: 10,
+              autocapitalize: "off",
+              autocorrect: "off",
+            },
           });
-
-          if (email) {
-            if (!accoundValidation) {
-              const { value: password } = await Swal.fire({
-                title: "Enter your password",
-                input: "password",
-                inputLabel: "Password",
-                inputPlaceholder: "Enter your password",
-                inputAttributes: {
-                  maxlength: 10,
-                  autocapitalize: "off",
-                  autocorrect: "off",
-                },
-              });
-              if (password) {
-                setValidationEmail(emailValidate);
-                axios
-                  .post("https://61a758d0387ab200171d2c12.mockapi.io/login", {
-                    email,
-                    password,
-                    userName,
-                    userId: userId,
-                    discount: true,
-                  })
-                  .then((res) => {
-                    window.localStorage.setItem("userName", userName);
-                    window.localStorage.setItem("password", password);
-                    window.localStorage.setItem("email", email);
-                    window.localStorage.setItem("userID", res.data.id);
-                    window.localStorage.setItem("isOline", "true");
-                    window.location.reload(false);
-                  })
-                  .catch((err) => console.log(err));
-                navigate("/Product");
-              }
-            } else {
-              Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "This User is Signup Befor",
-                footer: `<button class="register btn" >register</button>`,
-              });
-              document.querySelector(".register").onclick = () => {
-                HandlerReister();
-              };
-            }
+          if (password) {
+            axios
+              .post("https://61a758d0387ab200171d2c12.mockapi.io/login", {
+                email,
+                password,
+                userName,
+                // userId: userId,
+                discount: true,
+              })
+              .then((res) => {
+                window.localStorage.setItem("userName", userName);
+                window.localStorage.setItem("password", password);
+                window.localStorage.setItem("email", email);
+                window.localStorage.setItem("userID", res.data.id);
+                window.localStorage.setItem("isOline", "true");
+                window.location.reload(false);
+              })
+              .catch((err) => console.log(err));
+            navigate("/Product");
           }
         } else {
           Swal.fire({
@@ -167,6 +139,7 @@ const Register = ({ OfferHandler }) => {
         }
       }
     }
+    // }
   };
 
   const Loginn = async (e) => {
@@ -213,7 +186,6 @@ const Register = ({ OfferHandler }) => {
               .then((res) => {
                 window.localStorage.setItem("userID", res.data.id);
                 window.localStorage.setItem("isOline", "true");
-                // setLogin(false);
                 window.location.reload(false);
               })
               .catch((err) => console.log(err));

@@ -56,7 +56,7 @@ const Card = ({
         <img src={imgUrl} alt="test" />
       </div>
       <div className="card-content">
-        <h4>{name}</h4>
+        <h4 className="product-name">{name}</h4>
         {window.localStorage.getItem("userID") ? (
           <div className="price">
             <del className="card-price">({price})</del>
