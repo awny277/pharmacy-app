@@ -8,7 +8,6 @@ import { Col, Row } from "react-bootstrap";
 const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
-
     emailjs
       .sendForm(
         "service_98in86l",
