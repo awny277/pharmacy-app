@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./LoginForm.css";
 import { Dropdown } from "react-bootstrap";
+import "./LoginForm.css";
 
 const Register = ({ OfferHandler }) => {
   const [userInfo, setUserInfo] = useState([]);

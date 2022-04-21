@@ -51,9 +51,7 @@ const NavBar = () => {
                 id="dropdown-basic-button"
                 title={<BsFillPersonLinesFill className="UserIcon" />}
               >
-                <Dropdown.Item href="#/action-1">
-                  {userInfo.userName}
-                </Dropdown.Item>
+                <Dropdown.Item>{userInfo.userName}</Dropdown.Item>
                 <Dropdown.Divider />
                 <Register />
               </DropdownButton>

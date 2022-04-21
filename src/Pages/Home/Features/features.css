@@ -31,7 +31,26 @@
   color: var(--bs-gray);
   margin: 20px 0;
 }
+.Feature .touch-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.MapButton {
+  font-size: var(--fontsize-medium);
+  color: #0791f6;
+}
+.MapButton:hover {
+  background-color: transparent;
+  color: #0791f6;
 
+}
+.MapButton:focus {
+  box-shadow: none;
+}
 @media (max-width: 575.98px) { 
   .Feature h2 {
     font-size: 25px;
