@@ -5,34 +5,11 @@ import feature2 from "../../../images/img-features-02.svg";
 import feature3 from "../../../images/img-features-03.svg";
 import { GoLocation } from "react-icons/go";
 import "./features.css";
-const Feature = () => {
-  const ShowMotahedaInMapClick = () => {
-    window.open(
-      "https://maps.google.com?q=" +
-        21.388637822818346 +
-        "," +
-        39.796190271137135
-    );
-  };
-
-  const ShowMogtam3InMapClick = () => {
-    window.open(
-      "https://maps.google.com?q=" +
-        21.388637822818346 +
-        "," +
-        39.796190271137135
-    );
-  };
-
-  const ShowNahdiInMapClick = () => {
-    window.open(
-      "https://maps.google.com?q=" +
-        21.388637822818346 +
-        "," +
-        39.796190271137135
-    );
-  };
-
+const Feature = ({
+  ShowMotahedaInMapClick,
+  ShowMogtam3InMapClick,
+  ShowNahdiInMapClick,
+}) => {
   return (
     <React.Fragment>
       <div className="Feature">
@@ -45,8 +22,8 @@ const Feature = () => {
                 <img src={feature1} alt="test" />
                 <h4>المتحدة</h4>
                 <div className="touch-icon" onClick={ShowMotahedaInMapClick}>
-                  <GoLocation />
                   <button className="btn MapButton">اعثر علينا</button>
+                  <GoLocation />
                 </div>
               </div>
             </Col>
@@ -55,8 +32,8 @@ const Feature = () => {
                 <img src={feature2} alt="test" />
                 <h4>المجتمع</h4>
                 <div className="touch-icon" onClick={ShowMogtam3InMapClick}>
-                  <GoLocation />
                   <button className="btn MapButton">اعثر علينا</button>
+                  <GoLocation />
                 </div>
               </div>
             </Col>
@@ -65,8 +42,8 @@ const Feature = () => {
                 <img src={feature3} alt="test" />
                 <h4>النهدي</h4>
                 <div className="touch-icon" onClick={ShowNahdiInMapClick}>
-                  <GoLocation />
                   <button className="btn MapButton">اعثر علينا</button>
+                  <GoLocation />
                 </div>
               </div>
             </Col>

@@ -73,6 +73,24 @@
   padding: 10px;
 }
 .SimilarProducts h2 {
-  margin: 10px 0;
+  margin: 10px auto 20px;
   color: var(--main-Parg);
+  /* padding-bottom: 5px;
+  width: fit-content; */
+}
+
+.product-details .touch-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
+  cursor: pointer;
+  /* color:  var(--bs-gray-dark); */
+  color: #f27474;
+}
+
+.product-details .touch-icon .MapButton {
+  color:  var(--bs-gray-dark);
+
 }

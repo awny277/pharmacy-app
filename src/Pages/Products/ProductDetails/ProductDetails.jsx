@@ -3,10 +3,16 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import { IoAlertCircleOutline } from "react-icons/io5";
+import { GoLocation } from "react-icons/go";
 import "./ProductDetails.css";
 
 import Card from "../../../Layout/Card/Card";
-const ProductDetails = ({ setdataCompare }) => {
+const ProductDetails = ({
+  setdataCompare,
+  ShowMotahedaInMapClick,
+  ShowMogtam3InMapClick,
+  ShowNahdiInMapClick,
+}) => {
   const [product, setproduct] = useState([]);
   const [SimilarProducts, setSimilarProducts] = useState([]);
   const navigate = useNavigate();
@@ -26,6 +32,15 @@ const ProductDetails = ({ setdataCompare }) => {
         setSimilarProducts(res.data);
       });
   }, []);
+  const MoveToLocation = () => {
+    if (product.pharmacyName === "النهدي") {
+      return ShowNahdiInMapClick();
+    } else if (product.pharmacyName === "المجتمع") {
+      return ShowMogtam3InMapClick();
+    } else {
+      return ShowMotahedaInMapClick();
+    }
+  };
   return (
     <Container>
       <div className="product-details">
@@ -48,11 +63,14 @@ const ProductDetails = ({ setdataCompare }) => {
                 </div>
               ) : (
                 <div className="price">
-                  {/* <h3> price: {product.price}</h3> */}
                   <h3>السعر : {product.price} ر.س</h3>
                 </div>
               )}
               <p className="description-p"> {product.description}</p>
+              <div className="touch-icon" onClick={MoveToLocation}>
+                <button className="btn MapButton">اعثر علينا</button>
+                <GoLocation />
+              </div>
             </div>
           </Col>
         </Row>

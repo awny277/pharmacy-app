@@ -43,12 +43,49 @@ function App() {
 
     return null;
   }
+
+  const ShowMotahedaInMapClick = () => {
+    window.open(
+      "https://maps.google.com?q=" +
+        22.388637822818346 +
+        "," +
+        15.796190271137135
+    );
+  };
+
+  const ShowMogtam3InMapClick = () => {
+    window.open(
+      "https://maps.google.com?q=" +
+        55.388637822818346 +
+        "," +
+        17.796190271137135
+    );
+  };
+
+  const ShowNahdiInMapClick = () => {
+    window.open(
+      "https://maps.google.com?q=" +
+        21.388637822818346 +
+        "," +
+        39.796190271137135
+    );
+  };
   return (
     <React.Fragment>
       <NavBar />
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home searchName={searchNameHandeler} />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              searchName={searchNameHandeler}
+              ShowMotahedaInMapClick={ShowMotahedaInMapClick}
+              ShowMogtam3InMapClick={ShowMogtam3InMapClick}
+              ShowNahdiInMapClick={ShowNahdiInMapClick}
+            />
+          }
+        />
         <Route path="/admin" element={<Admin />} />
         <Route
           path="/Product"
@@ -63,13 +100,14 @@ function App() {
         <Route
           path="/Product/:id"
           element={
-            <ProductDetails setdataCompare={(data) => getCompareData(data)} />
+            <ProductDetails
+              setdataCompare={(data) => getCompareData(data)}
+              ShowMotahedaInMapClick={ShowMotahedaInMapClick}
+              ShowMogtam3InMapClick={ShowMogtam3InMapClick}
+              ShowNahdiInMapClick={ShowNahdiInMapClick}
+            />
           }
         />
-        {/* <Route
-          path="/compare"
-          element={<Compare dataComapre={dataComapre} />}
-        /> */}
         <Route
           path="/register"
           element={
