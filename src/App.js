@@ -7,7 +7,6 @@ import Footer from "./Layout/Footer/Footer";
 import Product from "./Pages/Products/Products";
 import ProductDetails from "./Pages/Products/ProductDetails/ProductDetails";
 import Register from "./Pages/LoginForm/Register";
-// import Compare from "./Pages/Compare/Compare";
 import "./App.css";
 
 function App() {
@@ -36,11 +35,9 @@ function App() {
   };
   function ScrollToTop() {
     const { pathname } = useLocation();
-
     useEffect(() => {
       window.scrollTo(0, 0);
     }, [pathname]);
-
     return null;
   }
 
@@ -70,6 +67,7 @@ function App() {
         39.796190271137135
     );
   };
+
   return (
     <React.Fragment>
       <NavBar />
