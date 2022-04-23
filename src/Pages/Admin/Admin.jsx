@@ -114,7 +114,6 @@ const Admin = () => {
     <Container>
       <div className="add-project">
         <h1 className="text-center">أضف منتج جديد</h1>
-
         <div className="add-project-content">
           <Form className="text-center">
             <Row>

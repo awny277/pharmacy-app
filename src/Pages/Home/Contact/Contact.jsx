@@ -42,7 +42,7 @@ const Contact = () => {
                   </div>
                   <div className="touch-info">
                     <h3>مكتبنا الرئيسي</h3>
-                    <span>123 Street, New York, USA</span>
+                    <span>123 Street, MAkkAH, KSA</span>
                   </div>
                 </div>
                 <div className="touch-left">
