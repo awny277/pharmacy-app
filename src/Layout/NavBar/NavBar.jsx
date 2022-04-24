@@ -57,9 +57,11 @@ const NavBar = () => {
             ) : (
               <Register />
             )}
-            <NavLink to={"/admin"} className="nav-link">
-              لوحة التحكم
-            </NavLink>
+            {userInfo.email === "mahammed@gmail.com" && (
+              <NavLink to={"/admin"} className="nav-link">
+                لوحة التحكم
+              </NavLink>
+            )}
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse id="basic-navbar-nav">
@@ -94,9 +96,11 @@ const NavBar = () => {
               <NavLink to={"/Product"} className="nav-link">
                 المنتجات
               </NavLink>
-              <NavLink to={"/admin"} className="nav-link">
-                لوحة التحكم
-              </NavLink>
+              {userInfo.email === "mahammed@gmail.com" && (
+                <NavLink to={"/admin"} className="nav-link">
+                  لوحة التحكم
+                </NavLink>
+              )}
             </Nav>
             {userInfo.userName && <Register />}
           </Offcanvas.Body>

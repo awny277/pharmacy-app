@@ -8,10 +8,11 @@ const Home = ({
   ShowMotahedaInMapClick,
   ShowMogtam3InMapClick,
   ShowNahdiInMapClick,
+  Loginn,
 }) => {
   return (
     <React.Fragment>
-      <Landing searchName={searchName} />
+      <Landing searchName={searchName} Loginn={Loginn} />
       <Feature
         ShowMotahedaInMapClick={ShowMotahedaInMapClick}
         ShowMogtam3InMapClick={ShowMogtam3InMapClick}

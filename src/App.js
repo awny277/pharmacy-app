@@ -7,12 +7,18 @@ import Footer from "./Layout/Footer/Footer";
 import Product from "./Pages/Products/Products";
 import ProductDetails from "./Pages/Products/ProductDetails/ProductDetails";
 import Register from "./Pages/LoginForm/Register";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import axios from "axios";
 import "./App.css";
 
 function App() {
   const [searchName, setSearchName] = useState("");
   const [userId, setUserId] = useState("");
   const [dataComapre, setdataCompare] = useState([]);
+  const [userInfo, setUserInfo] = useState([]);
+  const navigate = useNavigate();
+  const [validateAccount, setValidateAccount] = useState([]);
 
   const getCompareData = (data) => {
     setdataCompare(data);
@@ -58,7 +64,6 @@ function App() {
         39.788001929964814
     );
   };
-  // 21.37935310607602, 39.788001929964814
 
   const ShowNahdiInMapClick = () => {
     window.open(
@@ -67,6 +72,135 @@ function App() {
         "," +
         39.79143950864262
     );
+  };
+  useEffect(() => {
+    axios
+      .get("https://61a758d0387ab200171d2c12.mockapi.io/login")
+      .then((res) => {
+        setUserInfo(res.data);
+      });
+  }, [validateAccount]);
+
+  const HandelForgetPassword = async () => {
+    const { value: email } = await Swal.fire({
+      // allowOutsideClick: false,
+      title: "Enter Your Account",
+      input: "email",
+      inputLabel: "Your email address",
+      inputPlaceholder: "Enter your email address",
+    });
+    const accoundValidation = userInfo.find((ele) => {
+      return ele.email.toLowerCase() === email.toLowerCase();
+    });
+    if (email) {
+      const { value: password } = await Swal.fire({
+        title: "Enter your new password",
+        input: "password",
+        inputLabel: "Password",
+        inputPlaceholder: "Enter your New password",
+        inputAttributes: {
+          maxlength: 10,
+          autocapitalize: "off",
+          autocorrect: "off",
+        },
+      });
+      if (password) {
+        axios
+          .put(
+            "https://61a758d0387ab200171d2c12.mockapi.io/login/" +
+              accoundValidation.id,
+            {
+              email,
+              password,
+            }
+          )
+          .then((res) => {
+            window.localStorage.setItem("userName", accoundValidation.userName);
+            window.localStorage.setItem("password", password);
+            window.localStorage.setItem("email", email);
+            window.localStorage.setItem("userID", res.data.id);
+            window.localStorage.setItem("isOline", "true");
+            window.location.reload(false);
+          })
+          .catch((err) => console.log(err));
+        navigate("/Product");
+      }
+    }
+  };
+
+  const Loginn = async (e) => {
+    const { value: email } = await Swal.fire({
+      // allowOutsideClick: false,
+      title: "Login",
+      input: "email",
+      inputLabel: "Your email address",
+      inputPlaceholder: "Enter your email address",
+    });
+    const loginValidate = userInfo.find((ele) => {
+      return ele.email.toLowerCase() === email.toLowerCase();
+    });
+    setValidateAccount(loginValidate);
+    if (email) {
+      if (loginValidate || window.localStorage.getItem("email") === email) {
+        const { value: password } = await Swal.fire({
+          // allowOutsideClick: false,
+          title: "Login",
+          input: "password",
+          inputLabel: "Password",
+          inputPlaceholder: "Enter your password",
+          inputAttributes: {
+            maxlength: 10,
+            autocapitalize: "off",
+            autocorrect: "off",
+          },
+        });
+        if (password) {
+          // If Password or email Rong return Reister
+          if (loginValidate.password.toLowerCase() === password.toLowerCase()) {
+            const obj = {
+              userName: loginValidate.userName,
+              email: loginValidate.email,
+              password: loginValidate.password,
+              discount: true,
+            };
+            axios
+              .put(
+                "https://61a758d0387ab200171d2c12.mockapi.io/login/" +
+                  loginValidate.id,
+                { ...obj }
+              )
+              .then((res) => {
+                window.localStorage.setItem("userID", res.data.id);
+                window.localStorage.setItem("isOline", "true");
+                window.location.reload(false);
+              })
+              .catch((err) => console.log(err));
+            navigate("/Product");
+            OfferHandler();
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Emaill or Password is Wrong",
+              footer: `<button class="Forget btn" >Forget Password</button>`,
+            });
+            document.querySelector(".Forget").onclick = () => {
+              HandelForgetPassword();
+            };
+          }
+        }
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Emaill or Password is Wrong",
+          footer: `<button class="Forget btn" >Forget Password</button>`,
+        });
+        document.querySelector(".Forget").onclick = () => {
+          HandelForgetPassword();
+        };
+      }
+    }
   };
 
   return (
@@ -82,6 +216,7 @@ function App() {
               ShowMotahedaInMapClick={ShowMotahedaInMapClick}
               ShowMogtam3InMapClick={ShowMogtam3InMapClick}
               ShowNahdiInMapClick={ShowNahdiInMapClick}
+              Loginn={Loginn}
             />
           }
         />
@@ -93,6 +228,7 @@ function App() {
               searchName={searchName}
               OfferHandler={userLogin}
               setdataCompare={(data) => getCompareData(data)}
+              Loginn={Loginn}
             />
           }
         />

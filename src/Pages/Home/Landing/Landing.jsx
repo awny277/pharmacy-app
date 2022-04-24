@@ -4,12 +4,16 @@ import { useNavigate } from "react-router-dom";
 import Register from "../../LoginForm/Register";
 import "./Landing.css";
 
-const Landing = ({ searchName }) => {
+const Landing = ({ searchName, Loginn }) => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
   const searchHandlerBtn = () => {
-    searchName(search);
-    navigate("/Product");
+    if (window.localStorage.getItem("isOline") === "true") {
+      searchName(search);
+      navigate("/Product");
+    } else {
+      Loginn();
+    }
   };
   return (
     <React.Fragment>
@@ -32,7 +36,16 @@ const Landing = ({ searchName }) => {
                       id=""
                       placeholder="أبحث عن المنتجات"
                       value={search}
-                      onChange={(e) => setSearch(e.target.value)}
+                      onChange={(e) => {
+                        if (
+                          window.localStorage.getItem("isOline") === "false"
+                        ) {
+                          e.preventDefault();
+                          Loginn();
+                        } else {
+                          setSearch(e.target.value);
+                        }
+                      }}
                     />
                   </div>
                   <button

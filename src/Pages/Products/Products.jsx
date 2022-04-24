@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import imgNotfound from "../../images/notfound2.svg";
 import "./Products.css";
 
-const Product = ({ searchName, OfferHandler, setdataCompare }) => {
+const Product = ({ searchName, OfferHandler, setdataCompare, Loginn }) => {
   const [search, setSearch] = useState(searchName);
   const [products, setProducts] = useState([]);
   const [result, setResult] = useState([]);
@@ -47,7 +47,14 @@ const Product = ({ searchName, OfferHandler, setdataCompare }) => {
                 type="search"
                 placeholder="أدخل اسم المنتج"
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => {
+                  if (window.localStorage.getItem("isOline") === "false") {
+                    e.preventDefault();
+                    Loginn();
+                  } else {
+                    setSearch(e.target.value);
+                  }
+                }}
               />
               <Form.Text id="passwordHelpBlock" muted>
                 ابحث عن المنتجات بسعر مثالي

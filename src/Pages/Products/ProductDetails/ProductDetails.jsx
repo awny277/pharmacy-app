@@ -54,7 +54,7 @@ const ProductDetails = ({
             <div className="product-details-content text-center">
               <h2> {product.name}</h2>
               <h3>الصيدلية : {product.pharmacyName}</h3>
-              {window.localStorage.getItem("userID").length > 0 ? (
+              {/* {window.localStorage.getItem("userID").length > 0 ? (
                 <div className="price">
                   <h3>
                     السعر : {product.discount} ر.س{" "}
@@ -65,7 +65,10 @@ const ProductDetails = ({
                 <div className="price">
                   <h3>السعر : {product.price} ر.س</h3>
                 </div>
-              )}
+              )} */}
+              <div className="price">
+                <h3>السعر : {product.price} ر.س</h3>
+              </div>
               <p className="description-p"> {product.description}</p>
               <div className="touch-icon" onClick={MoveToLocation}>
                 <button className="btn MapButton">اعثر علينا</button>
