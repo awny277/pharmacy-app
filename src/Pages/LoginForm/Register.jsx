@@ -112,7 +112,7 @@ const Register = ({ OfferHandler }) => {
                 email,
                 password,
                 userName,
-                // userId: userId,
+                admin: false,
                 discount: true,
               })
               .then((res) => {
