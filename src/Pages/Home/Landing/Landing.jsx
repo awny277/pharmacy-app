@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Register from "../../LoginForm/Register";
@@ -6,7 +7,9 @@ import "./Landing.css";
 
 const Landing = ({ searchName, Loginn }) => {
   const [search, setSearch] = useState("");
+  const [userName, setUserName] = useState("");
   const navigate = useNavigate();
+
   const searchHandlerBtn = () => {
     if (window.localStorage.getItem("isOline") === "true") {
       searchName(search);
@@ -15,6 +18,7 @@ const Landing = ({ searchName, Loginn }) => {
       Loginn();
     }
   };
+
   return (
     <React.Fragment>
       <Container fluid className="HomeLanding text-center">
@@ -65,11 +69,10 @@ const Landing = ({ searchName, Loginn }) => {
                 <div className="LandingCall">
                   <h2 style={{ margin: "0 10px" }}>
                     ادفع في الصيدلية بدون اضافات
-                  </h2>
-                  {window.localStorage.getItem("isOline") === "false" && (
-                    <div>
-                      احصل علي خصم 10% عند تسجيل الدخول علي جميع المنتجات
-                    </div>
+                  </h2>{" "}
+                  <br />
+                  {window.localStorage.getItem("isOline") === "true" && (
+                    <h2>{window.localStorage.getItem("userName")} مرحبا بك </h2>
                   )}
                   <div className="landingLogin">
                     {window.localStorage.getItem("isOline") === "true" ? (

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { Dropdown } from "react-bootstrap";
-import "./LoginForm.css";
+import "./AdminLogin.css";
 
-const Register = ({ OfferHandler }) => {
+const AdminLogin = () => {
   const [userInfo, setUserInfo] = useState([]);
   const [validateAccount, setValidateAccount] = useState([]);
   const navigate = useNavigate();
@@ -68,7 +68,7 @@ const Register = ({ OfferHandler }) => {
             window.location.reload(false);
           })
           .catch((err) => console.log(err));
-        // navigate("/Product");
+        navigate("/admin");
       }
     }
   };
@@ -112,7 +112,7 @@ const Register = ({ OfferHandler }) => {
                 email,
                 password,
                 userName,
-                admin: false,
+                admin: true,
                 discount: true,
               })
               .then((res) => {
@@ -124,7 +124,7 @@ const Register = ({ OfferHandler }) => {
                 window.location.reload(false);
               })
               .catch((err) => console.log(err));
-            // navigate("/Product");
+            navigate("/admin");
           }
         } else {
           Swal.fire({
@@ -141,7 +141,6 @@ const Register = ({ OfferHandler }) => {
     }
     // }
   };
-
   const Loginn = async (e) => {
     const { value: email } = await Swal.fire({
       // allowOutsideClick: false,
@@ -192,8 +191,10 @@ const Register = ({ OfferHandler }) => {
               .catch((err) => console.log(err));
             if (loginValidate.admin === true) {
               navigate("/admin");
+            } else {
+              navigate("/Product");
             }
-            OfferHandler();
+            // OfferHandler();
           } else {
             Swal.fire({
               icon: "error",
@@ -219,29 +220,37 @@ const Register = ({ OfferHandler }) => {
       }
     }
   };
-
   return (
     <React.Fragment>
-      {window.localStorage.getItem("isOline") === "true" ? (
-        <div>
-          <Dropdown.Item href="#/action-2">
-            <button className="btn btn-danger Logout" onClick={logoutHandeller}>
-              تسجيل الخروج
-            </button>
-          </Dropdown.Item>
-        </div>
-      ) : (
-        <div className="registerr">
-          <button className="btn signup" onClick={HandlerReister}>
-            انشاء حساب
-          </button>
-          <button className="btn Login" onClick={Loginn}>
-            تسجيل الدخول
-          </button>
-        </div>
-      )}
+      <div className="AdminLogin text-center">
+        <Container>
+          <div className="AdminLogin-container">
+            <h1>مرحبا بك يمكنك تسجيل الدخول للوصول الي لوحة التحكم من هنا</h1>
+            <h2>يمكن انشاء حساب للمسؤلين فقط من هنا</h2>
+            {window.localStorage.getItem("isOline") === "true" ? (
+              <div>
+                <button
+                  className="btn btn-danger Logout"
+                  onClick={logoutHandeller}
+                >
+                  تسجيل الخروج
+                </button>
+              </div>
+            ) : (
+              <div className="registerr">
+                <button className="btn signup" onClick={HandlerReister}>
+                  انشاء حساب
+                </button>
+                <button className="btn Login" onClick={Loginn}>
+                  تسجيل الدخول
+                </button>
+              </div>
+            )}
+          </div>
+        </Container>
+      </div>
     </React.Fragment>
   );
 };
 
-export default Register;
+export default AdminLogin;

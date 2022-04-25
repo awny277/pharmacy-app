@@ -29,4 +29,9 @@
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
+  position: sticky;
+  top: 100px;
+}
+.form-check-label {
+  margin-left: 15px;
 }

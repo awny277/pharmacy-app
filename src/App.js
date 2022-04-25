@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./Layout/NavBar/NavBar";
 import Home from "./Pages/Home/Home";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Admin from "./Pages/Admin/Admin";
 import Footer from "./Layout/Footer/Footer";
 import Product from "./Pages/Products/Products";
 import ProductDetails from "./Pages/Products/ProductDetails/ProductDetails";
 import Register from "./Pages/LoginForm/Register";
-import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
+import AdminLogin from "./Pages/AdminLogin/AdminLogin";
 import "./App.css";
 
 function App() {
+  const navigate = useNavigate();
   const [searchName, setSearchName] = useState("");
   const [userId, setUserId] = useState("");
   const [dataComapre, setdataCompare] = useState([]);
   const [userInfo, setUserInfo] = useState([]);
-  const navigate = useNavigate();
   const [validateAccount, setValidateAccount] = useState([]);
 
   const getCompareData = (data) => {
@@ -123,7 +123,7 @@ function App() {
             window.location.reload(false);
           })
           .catch((err) => console.log(err));
-        navigate("/Product");
+        // navigate("/Product");
       }
     }
   };
@@ -253,6 +253,7 @@ function App() {
             />
           }
         />
+        <Route path="/AdminLogin" element={<AdminLogin />} />
       </Routes>
       <Footer />
     </React.Fragment>

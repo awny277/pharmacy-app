@@ -45,7 +45,7 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="offcanvasNavbar" />
         <Navbar.Collapse id="basic-navbar-nav nav-order3">
           <Nav className="me-auto">
-            {window.localStorage.getItem("isOline") === "true" ? (
+            {window.localStorage.getItem("isOline") === "true" && (
               <DropdownButton
                 id="dropdown-basic-button"
                 title={<BsFillPersonLinesFill className="UserIcon" />}
@@ -54,21 +54,20 @@ const NavBar = () => {
                 <Dropdown.Divider />
                 <Register />
               </DropdownButton>
-            ) : (
-              <Register />
             )}
-            {userInfo.email === "mahammed@gmail.com" && (
-              <NavLink to={"/admin"} className="nav-link">
-                لوحة التحكم
-              </NavLink>
-            )}
+            <NavLink to={"/Product"} className="nav-link">
+              المنتجات{" "}
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavLink to={"/Product"} className="nav-link">
-              المنتجات{" "}
-            </NavLink>
+            {userInfo.admin === true && (
+              <NavLink to={"/admin"} className="nav-link">
+                لوحة التحكم
+              </NavLink>
+            )}
+
             <NavLink to={"/"} data-rr-ui-event-key="#home" className="nav-link">
               الرئيسية
             </NavLink>
@@ -96,7 +95,7 @@ const NavBar = () => {
               <NavLink to={"/Product"} className="nav-link">
                 المنتجات
               </NavLink>
-              {userInfo.email === "mahammed@gmail.com" && (
+              {userInfo.admin === true && (
                 <NavLink to={"/admin"} className="nav-link">
                   لوحة التحكم
                 </NavLink>

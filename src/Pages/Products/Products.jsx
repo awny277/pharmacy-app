@@ -68,7 +68,7 @@ const Product = ({ searchName, OfferHandler, setdataCompare, Loginn }) => {
           </Col>
         </Row>
         <Row>
-          <Col md={2} className="Radio-button ">
+          <Col sm={3} className="Radio-button ">
             <div className="Radio-button-containet">
               <h4> : ترتيب السعر حسب </h4>
               <hr />
@@ -110,12 +110,12 @@ const Product = ({ searchName, OfferHandler, setdataCompare, Loginn }) => {
             </div>
           </Col>
           {result.length > 0 ? (
-            <Col>
+            <Col sm={9}>
               <div className="product-search-container">
                 <Row>
                   {result.map((ele, idx) => {
                     return (
-                      <Col sm={6} md={3} key={idx}>
+                      <Col sm={6} md={4} key={idx}>
                         <Card
                           OfferHandler={OfferHandler}
                           imgUrl={ele.imgUrl}
