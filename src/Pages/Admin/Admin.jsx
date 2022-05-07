@@ -36,7 +36,7 @@ const Admin = () => {
 
   useEffect(() => {
     axios
-      .get("https://61a758d0387ab200171d2c12.mockapi.io/products")
+      .get("https://6276e3182f94a1d70607fb63.mockapi.io/products")
       .then((res) => setData(res.data));
   }, [resultValidation]);
 
@@ -103,7 +103,7 @@ const Admin = () => {
         alertDoc,
       };
       axios
-        .post("https://61a758d0387ab200171d2c12.mockapi.io/products", {
+        .post("https://6276e3182f94a1d70607fb63.mockapi.io/products", {
           ...obj,
         })
         .then(HandelReselt)

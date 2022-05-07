@@ -20,7 +20,7 @@ const Register = ({ OfferHandler }) => {
   };
   useEffect(() => {
     axios
-      .get("https://61a758d0387ab200171d2c12.mockapi.io/login")
+      .get("https://6276e3182f94a1d70607fb63.mockapi.io/login")
       .then((res) => {
         setUserInfo(res.data);
       });
@@ -52,7 +52,7 @@ const Register = ({ OfferHandler }) => {
       if (password) {
         axios
           .put(
-            "https://61a758d0387ab200171d2c12.mockapi.io/login/" +
+            "https://6276e3182f94a1d70607fb63.mockapi.io/login/" +
               accoundValidation.id,
             {
               email,
@@ -108,7 +108,7 @@ const Register = ({ OfferHandler }) => {
           });
           if (password) {
             axios
-              .post("https://61a758d0387ab200171d2c12.mockapi.io/login", {
+              .post("https://6276e3182f94a1d70607fb63.mockapi.io/login", {
                 email,
                 password,
                 userName,
@@ -179,7 +179,7 @@ const Register = ({ OfferHandler }) => {
             };
             axios
               .put(
-                "https://61a758d0387ab200171d2c12.mockapi.io/login/" +
+                "https://6276e3182f94a1d70607fb63.mockapi.io/login/" +
                   loginValidate.id,
                 { ...obj }
               )
