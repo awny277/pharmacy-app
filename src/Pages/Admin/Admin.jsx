@@ -87,7 +87,7 @@ const Admin = () => {
       });
       ErrorTest.fire({
         icon: "error",
-        title: "This product already exists",
+        title: "هذا المنتج موجود بالفعل",
       });
     } else {
       const result = parseInt(price) - (parseInt(price) * 10) / 100;
