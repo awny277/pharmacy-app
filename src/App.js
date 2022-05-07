@@ -75,7 +75,7 @@ function App() {
   };
   useEffect(() => {
     axios
-      .get("https://6276e3182f94a1d70607fb63.mockapi.io/login")
+      .get("https://6276e9ed2f94a1d706082b7e.mockapi.io/login")
       .then((res) => {
         setUserInfo(res.data);
       });
@@ -107,7 +107,7 @@ function App() {
       if (password) {
         axios
           .put(
-            "https://6276e3182f94a1d70607fb63.mockapi.io/login/" +
+            "https://6276e9ed2f94a1d706082b7e.mockapi.io/login/" +
               accoundValidation.id,
             {
               email,
@@ -165,7 +165,7 @@ function App() {
             };
             axios
               .put(
-                "https://6276e3182f94a1d70607fb63.mockapi.io/login/" +
+                "https://6276e9ed2f94a1d706082b7e.mockapi.io/login/" +
                   loginValidate.id,
                 { ...obj }
               )

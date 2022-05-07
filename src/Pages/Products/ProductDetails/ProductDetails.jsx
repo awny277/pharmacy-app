@@ -19,7 +19,7 @@ const ProductDetails = ({
   const params = useParams();
   useEffect(() => {
     axios
-      .get(`https://6276e3182f94a1d70607fb63.mockapi.io/products/${params.id}`)
+      .get(`https://6276e9ed2f94a1d706082b7e.mockapi.io/products/${params.id}`)
       .then((res) => {
         setproduct(res.data);
       });
@@ -27,7 +27,7 @@ const ProductDetails = ({
 
   useEffect(() => {
     axios
-      .get("https://6276e3182f94a1d70607fb63.mockapi.io/products")
+      .get("https://6276e9ed2f94a1d706082b7e.mockapi.io/products")
       .then((res) => {
         setSimilarProducts(res.data);
       });

@@ -20,7 +20,7 @@ const NavBar = () => {
     if (window.localStorage.getItem("userID")) {
       setId(window.localStorage.getItem("userID"));
       axios
-        .get("https://6276e3182f94a1d70607fb63.mockapi.io/login/" + ID)
+        .get("https://6276e9ed2f94a1d706082b7e.mockapi.io/login/" + ID)
         .then((res) => {
           setUserInfo(res.data);
         })
