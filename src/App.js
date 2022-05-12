@@ -123,6 +123,10 @@ function App() {
             window.location.reload(false);
           })
           .catch((err) => console.log(err));
+        if (accoundValidation.admin === true) {
+          navigate("/admin");
+          window.localStorage.setItem("type", "admin");
+        }
         // navigate("/Product");
       }
     }
@@ -175,7 +179,11 @@ function App() {
                 window.location.reload(false);
               })
               .catch((err) => console.log(err));
-            navigate("/Product");
+            if (loginValidate.admin === true) {
+              navigate("/admin");
+              window.localStorage.setItem("type", "admin");
+            }
+            // navigate("/Product");
             OfferHandler();
           } else {
             Swal.fire({
