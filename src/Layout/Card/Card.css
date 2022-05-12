@@ -73,6 +73,7 @@
   color: var(--main-Parg);
 }
 .viewBtn {
+  margin: 15px 0;
   border-color: var(--main-Parg);
   color: var(--main-Parg);
   font-weight: 500;

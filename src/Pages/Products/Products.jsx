@@ -6,7 +6,13 @@ import { useNavigate } from "react-router-dom";
 import imgNotfound from "../../images/notfound2.svg";
 import "./Products.css";
 
-const Product = ({ searchName, OfferHandler, setdataCompare, Loginn }) => {
+const Product = ({
+  searchName,
+  OfferHandler,
+  setdataCompare,
+  Loginn,
+  userInfo,
+}) => {
   const [search, setSearch] = useState(searchName);
   const [products, setProducts] = useState([]);
   const [result, setResult] = useState([]);
@@ -78,7 +84,7 @@ const Product = ({ searchName, OfferHandler, setdataCompare, Loginn }) => {
                     <Col>
                       <Form.Check
                         inline
-                        label="أرخص"
+                        label="أقل سعر"
                         name="group1"
                         type={type}
                         id={`inline-${type}-2`}
@@ -93,7 +99,7 @@ const Product = ({ searchName, OfferHandler, setdataCompare, Loginn }) => {
                     <Col>
                       <Form.Check
                         inline
-                        label="أغلي"
+                        label="أعلي سعر"
                         name="group1"
                         type={type}
                         id={`inline-${type}-1`}
@@ -117,6 +123,7 @@ const Product = ({ searchName, OfferHandler, setdataCompare, Loginn }) => {
                     return (
                       <Col sm={6} md={4} key={idx}>
                         <Card
+                          productId={ele.id}
                           OfferHandler={OfferHandler}
                           imgUrl={ele.imgUrl}
                           name={ele.name}
@@ -128,6 +135,9 @@ const Product = ({ searchName, OfferHandler, setdataCompare, Loginn }) => {
                           setdataCompare={setdataCompare}
                           compare={ele.compare}
                           ElementId={ele.id}
+                          userInfo={userInfo}
+                          Loginn={Loginn}
+                          // handelDelete ={handelDelete}
                         />
                       </Col>
                     );

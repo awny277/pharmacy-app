@@ -16,6 +16,7 @@ const Register = ({ OfferHandler }) => {
     window.localStorage.setItem("email", "");
     window.localStorage.setItem("userID", "");
     window.localStorage.setItem("isOline", "false");
+    window.localStorage.setItem("type", "user");
     window.location.reload(false);
   };
   useEffect(() => {
@@ -68,6 +69,10 @@ const Register = ({ OfferHandler }) => {
             window.location.reload(false);
           })
           .catch((err) => console.log(err));
+        if (accoundValidation.admin === true) {
+          navigate("/admin");
+          window.localStorage.setItem("type", "admin");
+        }
         // navigate("/Product");
       }
     }
@@ -121,6 +126,7 @@ const Register = ({ OfferHandler }) => {
                 window.localStorage.setItem("email", email);
                 window.localStorage.setItem("userID", res.data.id);
                 window.localStorage.setItem("isOline", "true");
+                window.localStorage.setItem("type", "user");
                 window.location.reload(false);
               })
               .catch((err) => console.log(err));
@@ -192,6 +198,7 @@ const Register = ({ OfferHandler }) => {
               .catch((err) => console.log(err));
             if (loginValidate.admin === true) {
               navigate("/admin");
+              window.localStorage.setItem("type", "admin");
             }
             OfferHandler();
           } else {

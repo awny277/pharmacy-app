@@ -229,6 +229,7 @@ function App() {
               OfferHandler={userLogin}
               setdataCompare={(data) => getCompareData(data)}
               Loginn={Loginn}
+              userInfo={userInfo}
             />
           }
         />

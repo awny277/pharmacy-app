@@ -16,6 +16,7 @@ const AdminLogin = () => {
     window.localStorage.setItem("email", "");
     window.localStorage.setItem("userID", "");
     window.localStorage.setItem("isOline", "false");
+    window.localStorage.setItem("type", "user");
     window.location.reload(false);
   };
   useEffect(() => {
@@ -65,10 +66,17 @@ const AdminLogin = () => {
             window.localStorage.setItem("email", email);
             window.localStorage.setItem("userID", res.data.id);
             window.localStorage.setItem("isOline", "true");
+
             window.location.reload(false);
           })
           .catch((err) => console.log(err));
-        navigate("/admin");
+        if (accoundValidation.admin === true) {
+          window.localStorage.setItem("type", "admin");
+          navigate("/admin");
+        } else {
+          navigate("/Product");
+          window.localStorage.setItem("type", "user");
+        }
       }
     }
   };
@@ -121,6 +129,7 @@ const AdminLogin = () => {
                 window.localStorage.setItem("email", email);
                 window.localStorage.setItem("userID", res.data.id);
                 window.localStorage.setItem("isOline", "true");
+                window.localStorage.setItem("type", "admin");
                 window.location.reload(false);
               })
               .catch((err) => console.log(err));
@@ -191,8 +200,10 @@ const AdminLogin = () => {
               .catch((err) => console.log(err));
             if (loginValidate.admin === true) {
               navigate("/admin");
+              window.localStorage.setItem("type", "admin");
             } else {
               navigate("/Product");
+              window.localStorage.setItem("type", "user");
             }
             // OfferHandler();
           } else {

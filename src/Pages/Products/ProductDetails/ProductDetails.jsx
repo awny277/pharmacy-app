@@ -22,7 +22,8 @@ const ProductDetails = ({
       .get(`https://6276e9ed2f94a1d706082b7e.mockapi.io/products/${params.id}`)
       .then((res) => {
         setproduct(res.data);
-      });
+      })
+      .catch((err) => console.log(err));
   }, [params.id]);
 
   useEffect(() => {
