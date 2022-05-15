@@ -14,7 +14,7 @@ import Register from "../../Pages/LoginForm/Register";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import "./Navbar.css";
 const NavBar = () => {
-  // جلب بيانات المستخد
+  // جلب بيانات المستخدم لعرض اسمه
   const [ID, setId] = useState("");
   const [userInfo, setUserInfo] = useState([]);
   useEffect(() => {

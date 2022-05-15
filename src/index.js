@@ -8,6 +8,7 @@ import "./index.css";
 
 ReactDOM.render(
   <BrowserRouter>
+    {/* الموقع كامل */}
     <App />
   </BrowserRouter>,
   document.getElementById("root")

@@ -272,6 +272,7 @@ function App() {
       <NavBar />
       <ScrollToTop />
       <Routes>
+        {/* الصفحة الرئيسية */}
         <Route
           path="/"
           element={

@@ -36,7 +36,7 @@ const Admin = () => {
     setAlertDoc(alertMessage);
   };
 
-  // جلب جميع البيانات للمقارنة بين المنتج الجديد المنتجات السابقة للتأكد من ان المنتج لا يتكرر مرتين
+  // جلب جميع البيانات من الداتا بيز للمقارنة بين المنتج الجديد المنتجات السابقة للتأكد من ان المنتج لا يتكرر مرتين
   useEffect(() => {
     axios
       .get("https://6276e9ed2f94a1d706082b7e.mockapi.io/products")
@@ -78,7 +78,7 @@ const Admin = () => {
         title: "يجب ملئ جيمع الحقول",
       });
     } else if (product) {
-      // لو المنتج موجود سابقا
+      //  لو المنتج موجود سابقالا تقم بأضافته
       e.preventDefault();
       const ErrorTest = Swal.mixin({
         toast: true,
@@ -96,7 +96,7 @@ const Admin = () => {
         title: "هذا المنتج موجود بالفعل",
       });
     } else {
-      //  لو المنتج غير موجود سابقا
+      //  لو المنتج غير موجود سابقا تقوم بأضافته
       const result = parseInt(price) - (parseInt(price) * 10) / 100;
       setDiscount(result);
       const obj = {

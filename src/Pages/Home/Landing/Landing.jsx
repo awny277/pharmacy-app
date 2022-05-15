@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Register from "../../LoginForm/Register";
@@ -7,7 +6,6 @@ import "./Landing.css";
 
 const Landing = ({ searchName, Loginn }) => {
   const [search, setSearch] = useState("");
-  const [userName, setUserName] = useState("");
   const navigate = useNavigate();
 
   const searchHandlerBtn = () => {

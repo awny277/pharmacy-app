@@ -6,9 +6,6 @@ const Footer = () => {
   return (
     <div className="footer text-center">
       <div className="container">
-        {/* <div className="logo">
-          <img src={logo} alt="Logo" />
-        </div> */}
         <p>our SOCIAL media</p>
         <div className="social-icons">
           <FaFacebookF />

@@ -44,10 +44,10 @@ const Product = ({ searchName, Loginn }) => {
   }, [products, search, cheap, expensive]);
 
   return (
-    // البحث عن منتج
     <Container fluid>
       <div className="products-search-page">
         <h1 className="text-center">أبحث عن المنتجات</h1>
+        {/* // البحث عن منتج */}
         <Row className="searchInput">
           <Col xs={12} md={7}>
             <FloatingLabel
