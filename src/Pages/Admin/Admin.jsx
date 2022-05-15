@@ -15,10 +15,10 @@ const Admin = () => {
   const [imgUrl, setImageUrl] = useState(
     "https://i.pinimg.com/564x/ab/5d/a8/ab5da80fd13df4048ceb235bc9723720.jpg"
   );
-
   const [data, setData] = useState([]);
   const [resultValidation, setResult] = useState([]);
 
+  // حدف جميع الحقول عند اضافة المنتج
   const HandelReselt = () => {
     setName("");
     setPrice("");
@@ -29,11 +29,14 @@ const Admin = () => {
     setAlertDoc(false);
     window.location.reload(false);
   };
+
+  // دالة التأكد من ان المنتج يحتاج الي وصة طبيب
   const HandelCheck = () => {
     const alertMessage = !alertDoc;
     setAlertDoc(alertMessage);
   };
 
+  // جلب جميع البيانات للمقارنة بين المنتج الجديد المنتجات السابقة للتأكد من ان المنتج لا يتكرر مرتين
   useEffect(() => {
     axios
       .get("https://6276e9ed2f94a1d706082b7e.mockapi.io/products")
@@ -41,6 +44,7 @@ const Admin = () => {
   }, [resultValidation]);
 
   const submitHandel = (e) => {
+    // يتاأكد ان المنتج غير موجود سابفا
     const product = data.find((ele) => {
       return (
         ele.name.toLowerCase().includes(name.toLowerCase()) &&
@@ -48,6 +52,7 @@ const Admin = () => {
       );
     });
     setResult(product);
+    // لا يسمح بوجود حقل فارغ
     if (
       name.length === 0 ||
       enName.length === 0 ||
@@ -73,6 +78,7 @@ const Admin = () => {
         title: "يجب ملئ جيمع الحقول",
       });
     } else if (product) {
+      // لو المنتج موجود سابقا
       e.preventDefault();
       const ErrorTest = Swal.mixin({
         toast: true,
@@ -90,6 +96,7 @@ const Admin = () => {
         title: "هذا المنتج موجود بالفعل",
       });
     } else {
+      //  لو المنتج غير موجود سابقا
       const result = parseInt(price) - (parseInt(price) * 10) / 100;
       setDiscount(result);
       const obj = {

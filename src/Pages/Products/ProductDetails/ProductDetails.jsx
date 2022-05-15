@@ -8,7 +8,6 @@ import "./ProductDetails.css";
 
 import Card from "../../../Layout/Card/Card";
 const ProductDetails = ({
-  setdataCompare,
   ShowMotahedaInMapClick,
   ShowMogtam3InMapClick,
   ShowNahdiInMapClick,
@@ -17,6 +16,9 @@ const ProductDetails = ({
   const [SimilarProducts, setSimilarProducts] = useState([]);
   const navigate = useNavigate();
   const params = useParams();
+  // جلب منتج معين لعرضه في صفحه خاصه به عن طريق ال
+  // id
+  // الخاص بالمنتج
   useEffect(() => {
     axios
       .get(`https://6276e9ed2f94a1d706082b7e.mockapi.io/products/${params.id}`)
@@ -26,6 +28,7 @@ const ProductDetails = ({
       .catch((err) => console.log(err));
   }, [params.id]);
 
+  // جلب باقي المنتجات اللتي تعرضها نفس الصيدلية
   useEffect(() => {
     axios
       .get("https://6276e9ed2f94a1d706082b7e.mockapi.io/products")
@@ -33,6 +36,8 @@ const ProductDetails = ({
         setSimilarProducts(res.data);
       });
   }, []);
+
+  //الذهاب الي موقع كل صيدلية في الخريطة
   const MoveToLocation = () => {
     if (product.pharmacyName === "النهدي") {
       return ShowNahdiInMapClick();
@@ -43,6 +48,7 @@ const ProductDetails = ({
     }
   };
   return (
+    //  عرض المنتج
     <Container>
       <div className="product-details">
         <Row className="product-details-container">
@@ -55,18 +61,6 @@ const ProductDetails = ({
             <div className="product-details-content text-center">
               <h2> {product.name}</h2>
               <h3>الصيدلية : {product.pharmacyName}</h3>
-              {/* {window.localStorage.getItem("userID").length > 0 ? (
-                <div className="price">
-                  <h3>
-                    السعر : {product.discount} ر.س{" "}
-                    <del>( {product.price} )</del>
-                  </h3>
-                </div>
-              ) : (
-                <div className="price">
-                  <h3>السعر : {product.price} ر.س</h3>
-                </div>
-              )} */}
               <div className="price">
                 <h3>السعر : {product.price} ر.س</h3>
               </div>
@@ -78,6 +72,7 @@ const ProductDetails = ({
             </div>
           </Col>
         </Row>
+        {/* تحذير للمنتجات اللتي تحتاج الي وصفة طبيب */}
         {product.alertDoc === true && (
           <div className="text-center alertDoc">
             <p>هذا المنتج يحتاج الي وصفة من الطبيب</p>
@@ -87,6 +82,7 @@ const ProductDetails = ({
       </div>
       <div className="SimilarProducts">
         <h2 className="text-center">منتجات أخرى</h2>
+        {/* كارد يحتوي علي المنتجات اللتي تقوم بعرضها نفس الصيديلة */}
         <Row>
           {SimilarProducts.filter(
             (ele) => ele.pharmacyName === product.pharmacyName
@@ -95,15 +91,8 @@ const ProductDetails = ({
               <Col sm={5} md={3} key={idx}>
                 <Card
                   imgUrl={ele.imgUrl}
-                  name={ele.name}
-                  price={ele.price}
-                  pharmacyName={ele.pharmacyName}
-                  discount={ele.discount}
                   ClickHandel={() => navigate(`/Product/${ele.id}`)}
-                  result={SimilarProducts}
-                  setdataCompare={setdataCompare}
-                  compare={ele.compare}
-                  ElementId={ele.id}
+                  productId={ele.id}
                 />
               </Col>
             );

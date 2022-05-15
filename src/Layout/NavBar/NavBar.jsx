@@ -14,6 +14,7 @@ import Register from "../../Pages/LoginForm/Register";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import "./Navbar.css";
 const NavBar = () => {
+  // جلب بيانات المستخد
   const [ID, setId] = useState("");
   const [userInfo, setUserInfo] = useState([]);
   useEffect(() => {
@@ -37,6 +38,7 @@ const NavBar = () => {
     }
   }, [ID]);
   return (
+    // عرض حميع الروابط
     <Navbar bg="light" expand="lg" sticky="top">
       <Container fluid>
         <Navbar.Brand>

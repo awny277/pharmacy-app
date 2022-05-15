@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import "./LoginForm.css";
 
-const Register = ({ OfferHandler }) => {
+const Register = () => {
   const [userInfo, setUserInfo] = useState([]);
   const [validateAccount, setValidateAccount] = useState([]);
   const navigate = useNavigate();
@@ -200,7 +200,6 @@ const Register = ({ OfferHandler }) => {
               navigate("/admin");
               window.localStorage.setItem("type", "admin");
             }
-            OfferHandler();
           } else {
             Swal.fire({
               icon: "error",
@@ -217,11 +216,11 @@ const Register = ({ OfferHandler }) => {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Emaill or Password is Wrong",
-          footer: `<button class="Forget btn" >Forget Password</button>`,
+          text: "Account is wrong",
+          footer: `<button class="register btn" >register</button>`,
         });
-        document.querySelector(".Forget").onclick = () => {
-          HandelForgetPassword();
+        document.querySelector(".register").onclick = () => {
+          HandlerReister();
         };
       }
     }

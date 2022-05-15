@@ -6,20 +6,15 @@ import { useNavigate } from "react-router-dom";
 import imgNotfound from "../../images/notfound2.svg";
 import "./Products.css";
 
-const Product = ({
-  searchName,
-  OfferHandler,
-  setdataCompare,
-  Loginn,
-  userInfo,
-}) => {
+const Product = ({ searchName, Loginn }) => {
   const [search, setSearch] = useState(searchName);
   const [products, setProducts] = useState([]);
   const [result, setResult] = useState([]);
   const [cheap, setCheap] = useState(false);
   const [expensive, setExpensive] = useState(true);
-  // const [compare, setCompare] = useState(true);
   const navigate = useNavigate();
+
+  // get products from database
   useEffect(() => {
     axios
       .get("https://6276e9ed2f94a1d706082b7e.mockapi.io/products")
@@ -28,6 +23,11 @@ const Product = ({
       });
   }, []);
 
+  const filterHandeller = (e) => {
+    const data = products.filter((ele) => ele.id !== e);
+    setResult(data);
+  };
+  // ترتيب حسب الاعلا و الاقل في السر
   useEffect(() => {
     const data = products.filter(
       (ele) =>
@@ -41,9 +41,10 @@ const Product = ({
       data.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
       setResult(data);
     }
-  }, [products, search, OfferHandler, cheap, expensive]);
+  }, [products, search, cheap, expensive]);
 
   return (
+    // البحث عن منتج
     <Container fluid>
       <div className="products-search-page">
         <h1 className="text-center">أبحث عن المنتجات</h1>
@@ -73,6 +74,7 @@ const Product = ({
             </FloatingLabel>
           </Col>
         </Row>
+        {/* ترتيب المنتجات */}
         <Row>
           <Col sm={3} className="Radio-button ">
             <div className="Radio-button-containet">
@@ -115,6 +117,7 @@ const Product = ({
               </Form>
             </div>
           </Col>
+          {/* عرض المنتجات */}
           {result.length > 0 ? (
             <Col sm={9}>
               <div className="product-search-container">
@@ -123,21 +126,12 @@ const Product = ({
                     return (
                       <Col sm={6} md={4} key={idx}>
                         <Card
-                          productId={ele.id}
-                          OfferHandler={OfferHandler}
                           imgUrl={ele.imgUrl}
-                          name={ele.name}
-                          price={ele.price}
-                          pharmacyName={ele.pharmacyName}
-                          discount={ele.discount}
                           ClickHandel={() => navigate(`/Product/${ele.id}`)}
-                          result={result}
-                          setdataCompare={setdataCompare}
-                          compare={ele.compare}
-                          ElementId={ele.id}
-                          userInfo={userInfo}
+                          productId={ele.id}
                           Loginn={Loginn}
-                          // handelDelete ={handelDelete}
+                          filterHandeller={(e) => filterHandeller(e)}
+                          type={"delete"}
                         />
                       </Col>
                     );
@@ -146,8 +140,9 @@ const Product = ({
               </div>
             </Col>
           ) : (
+            // عند وجود مشكلة في الوصول الي الانترنت يقوم الموقع بعرض هذه التفاصيل
             <div className="text-center notFound">
-              <h2 className="notfoundText ">هذا المنتج غير موجود</h2>
+              <h2 className="notfoundText ">لا يوجد منتجات حاليا</h2>
               <img
                 className="imgNotfound"
                 src={imgNotfound}
