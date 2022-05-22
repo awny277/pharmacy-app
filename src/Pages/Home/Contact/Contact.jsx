@@ -6,6 +6,7 @@ import "./Contact.css";
 import emailjs from "@emailjs/browser";
 import { Col, Row } from "react-bootstrap";
 const Contact = () => {
+  //  ارسال بيانات التواصل الي الايميل
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -25,6 +26,7 @@ const Contact = () => {
       );
     e.target.reset();
   };
+
   return (
     <div className="Touch" id="featuer">
       <div className="container-fluid">

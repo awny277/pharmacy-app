@@ -27,7 +27,7 @@ const Product = ({ searchName, Loginn }) => {
     const data = products.filter((ele) => ele.id !== e);
     setResult(data);
   };
-  // ترتيب حسب الاعلا و الاقل في السر
+  //ترتيب حسب الاعلا و الاقل في السعر و البحث
   useEffect(() => {
     const data = products.filter(
       (ele) =>

@@ -10,6 +10,7 @@ const Register = () => {
   const [validateAccount, setValidateAccount] = useState([]);
   const navigate = useNavigate();
 
+  // تسجيل خروج
   const logoutHandeller = () => {
     window.localStorage.setItem("userName", "");
     window.localStorage.setItem("password", "");
@@ -19,6 +20,7 @@ const Register = () => {
     window.localStorage.setItem("type", "user");
     window.location.reload(false);
   };
+  // جلب البيانات من الداتا بيز
   useEffect(() => {
     axios
       .get("https://6276e9ed2f94a1d706082b7e.mockapi.io/login")
@@ -27,6 +29,7 @@ const Register = () => {
       });
   }, [validateAccount]);
 
+  // دالة نسيان الرقم السري
   const HandelForgetPassword = async () => {
     const { value: email } = await Swal.fire({
       // allowOutsideClick: false,
@@ -78,6 +81,7 @@ const Register = () => {
     }
   };
 
+  // انشاء حساب جديد
   const HandlerReister = async (e) => {
     const { value: userName } = await Swal.fire({
       title: "User Name",
@@ -148,6 +152,7 @@ const Register = () => {
     // }
   };
 
+  // تسجيل الدخول
   const Loginn = async (e) => {
     const { value: email } = await Swal.fire({
       // allowOutsideClick: false,

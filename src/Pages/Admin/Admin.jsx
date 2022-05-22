@@ -43,6 +43,7 @@ const Admin = () => {
       .then((res) => setData(res.data));
   }, [resultValidation]);
 
+  // save fun
   const submitHandel = (e) => {
     // يتاأكد ان المنتج غير موجود سابفا
     const product = data.find((ele) => {

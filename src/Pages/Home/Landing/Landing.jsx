@@ -8,6 +8,7 @@ const Landing = ({ searchName, Loginn }) => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
+  // البحث في الصفحة الرئيسية و التأكد من تسجيل الدخول للمستخدم
   const searchHandlerBtn = () => {
     if (window.localStorage.getItem("isOline") === "true") {
       searchName(search);

@@ -33,10 +33,7 @@ function App() {
   // موقع المتحدة علي الخريطة
   const ShowMotahedaInMapClick = () => {
     window.open(
-      "https://maps.google.com?q=" +
-        21.387757328569762 +
-        "," +
-        39.78686664878236
+      "https://maps.google.com?q=" + 21.35199276038201 + "," + 39.90772126172704
     );
   };
 
@@ -54,10 +51,11 @@ function App() {
   const ShowNahdiInMapClick = () => {
     window.open(
       "https://maps.google.com?q=" +
-        21.396601294967642 +
+        21.355807034508466 +
         "," +
-        39.79143950864262
+        39.88969967097309
     );
+    // 21.355807034508466, 39.88969967097309
   };
   useEffect(() => {
     axios
@@ -310,7 +308,7 @@ function App() {
         />
         {/* اشناء حساب جديد لمستخدمين الموقع و انشاء حساب جديد للمستخم*/}
         <Route path="/register" element={<Register />} />
-        {/*تسجيل دخول مسؤل الموقع ز انشاء حساب جديد */}
+        {/*تسجيل دخول مسؤل الموقع و انشاء حساب جديد */}
         <Route path="/AdminLogin" element={<AdminLogin />} />
       </Routes>
       <Footer />
