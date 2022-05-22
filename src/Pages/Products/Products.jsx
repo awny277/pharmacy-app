@@ -132,6 +132,8 @@ const Product = ({ searchName, Loginn }) => {
                           Loginn={Loginn}
                           filterHandeller={(e) => filterHandeller(e)}
                           type={"delete"}
+                          name={ele.name}
+                          price={ele.price}
                         />
                       </Col>
                     );

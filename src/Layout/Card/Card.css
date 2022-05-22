@@ -36,11 +36,11 @@
 }
 
 .card-content {
-  padding: 5px;
+  padding: 10px;
 }
 
 .card-content h4 {
-  margin: 5px 0 ;
+  margin: 5px 10 ;
   font-size: var(--fontsize-medium);
 }
 
@@ -62,9 +62,9 @@
   align-items: center;
 }
 
-.cards .price span {
+.price2 {
   color: var(--bs-gray-dark);
-  margin-right: 10px;
+  margin: 10px;
 }
 .cards .price del {
   color: var(--bs-gray);
@@ -73,7 +73,7 @@
   color: var(--main-Parg);
 }
 .viewBtn {
-  margin: 15px;
+  margin: 5px;
   border-color: var(--main-Parg);
   color: var(--main-Parg);
   font-weight: 500;

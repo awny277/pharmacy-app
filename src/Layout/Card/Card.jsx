@@ -8,6 +8,8 @@ const Card = ({
   Loginn,
   filterHandeller,
   type,
+  name,
+  price,
 }) => {
   // حذف منتج
   const handelDelete = () => {
@@ -25,6 +27,12 @@ const Card = ({
         <img src={imgUrl} alt="test" />
       </div>
       <div className="card-content">
+        {window.localStorage.getItem("isOline") === "true" && (
+          <div>
+            <h4>{name}</h4>
+            <p className="price2">السعر : {price} ر.س</p>
+          </div>
+        )}
         <button
           className="btn viewBtn"
           onClick={(e) => {

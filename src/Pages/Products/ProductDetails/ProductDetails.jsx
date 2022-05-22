@@ -93,6 +93,8 @@ const ProductDetails = ({
                   imgUrl={ele.imgUrl}
                   ClickHandel={() => navigate(`/Product/${ele.id}`)}
                   productId={ele.id}
+                  name={ele.name}
+                  price={ele.price}
                 />
               </Col>
             );
